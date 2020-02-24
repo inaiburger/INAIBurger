@@ -1,38 +1,36 @@
-# INAIBurger
-INAI BURGER is University Project
+# INAI Burger
+Цель разработки мобильного приложения “INAI Burger” с сайтом для скачивание приложения и информирования людей с административной панелью - для конструктирования посетителям бургеров по своим желаниям, а также предоставление возможности посетителям заведения удобно следить за новостями, касающихся заведения.
 
-Tech and Science Fest
+## Члены команды:
+* Азизбек уулу Адахан - Project Manager/Tech Team Lead
+* Акылбек уулу Бекболот - QA Manager
+* Омуркулов Азамат - QA Manager
+* Нурбаев Максатбек - QA Manager
+* Кутуев Туран - Mobile Developer
+* Исмаилова Бермет - Frontend Developer
+* Назаров Байэл - Frontend Developer
+* Нурланбек уулу Саддамбек - Backend Developer
+* Рыспаева Касиет - Technical Documentation writer
+* Исаев Байэл - DevOps
+* Маратова Жаркынай - Designer
 
-This project created for learning GitVCS and working with team. Theme of project is"Tech and Science Fest" website.
 
-Team members:
+## Ссылка на веб-сайт:
 
-Azizbek uulu Adakhan - Project Manager
-Akylbek uulu Bekbolot - QA Manager
-Ismailova Bermet - Designer
-Nurlanbek uulu Saddambek - Frontend Developer
-Nurbaev Maksatbek - Content maker
-Ryspaeva Kasiet - Technical Documentation writer
-Link to working server:
+## Ссылка на административную модель:
 
-https://TechScienceFest.github.io
-
-Link to Backlog:
+## Ссылка на беклог:
 
 https://easybacklog.com/accounts/30638/backlogs/338848
 
-Tasks:
+## Техничиеское задание:
 
-https://docs.google.com/document/d/1ANB-hcB9ipm39NN7tTxCdVn0pk89by8ZHv-0nu90is8/edit
+https://docs.google.com/document/d/1EeM03dmUvvJy4Opdp9KKAwJJyTZJEqBSPV5NE0FPi6Q/edit?usp=sharing
 
-Tools that was used:
+## Коммерческое приложение:
 
-HTML, CSS, JavaScript, Bootstrap, GitHub, Jquery, Google Map
+https://docs.google.com/document/d/1rlnM4Qig2HoP992-M63BZ_Elgxa4yGj4_irJb5QVn7E/edit?usp=sharing
 
-Deadline: 24.09.2019
+## Использованные технологии:
 
-We have to spend at least 2 hours everyday and commit at least 15 commits. Also, we must report every day. Answer to 3 questions:
-
-What did I do yesterday?
-What I will do today?
-What problem did I encounter?
+HTML, CSS, JavaScript, Bootstrap, GitHub, Jquery, Google Map, Flutter, Django, Figma
