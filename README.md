@@ -19,6 +19,10 @@
 
 ## Ссылка на административную модель:
 
+## Ccылка на Бизнес процес диаграмму:
+
+https://drive.google.com/open?id=1uJX4m6kNmM0BrwN8Ols1d3HET-vxhjFx
+
 ## Ссылка на беклог:
 
 https://easybacklog.com/accounts/30638/backlogs/338848
