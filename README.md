@@ -21,7 +21,7 @@
 
 ## Ccылка на Бизнес процес диаграмму:
 
-https://drive.google.com/open?id=1uJX4m6kNmM0BrwN8Ols1d3HET-vxhjFx
+https://github.com/inaiburger/INAIBurger/blob/master/InaiBurger.pdf
 
 ## Ссылка на беклог:
 
