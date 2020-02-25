@@ -3,7 +3,6 @@
 
 ## Члены команды:
 * Азизбек уулу Адахан - Project Manager/Tech Team Lead
-* Акылбек уулу Бекболот - QA Manager
 * Омуркулов Азамат - QA Manager
 * Нурбаев Максатбек - QA Manager
 * Кутуев Туран - Mobile Developer
