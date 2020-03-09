@@ -24,7 +24,7 @@ https://github.com/inaiburger/INAIBurger/blob/master/InaiBurger.pdf
 
 ## Ссылка на беклог:
 
-https://easybacklog.com/accounts/30638/backlogs/338848
+https://easybacklog.com/accounts/31789/backlogs/350150
 
 ## Техничиеское задание:
 
