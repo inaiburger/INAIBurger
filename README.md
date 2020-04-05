@@ -13,6 +13,10 @@
 * Исаев Байэл - DevOps
 * Маратова Жаркынай - Designer
 
+## Ссылки на другие репозитории:
+
+## Ссылка на дизайн:
+https://www.figma.com/file/252t9U42pCCSHQAeDq73mg/INAIBurger?node-id=0%3A1
 
 ## Ссылка на веб-сайт:
 
