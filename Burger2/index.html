@@ -1,0 +1,471 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Auberge a Hotel Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Auberge Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android  Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap -->
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' media="all" />
+<!-- //bootstrap -->
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' media="all" />
+<link rel="stylesheet" href="css/lightbox.css">
+<script src="js/jquery-1.8.3.min.js"></script>
+<!--start-smoth-scrolling-->
+<!--webfonts-->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Philosopher:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--webfonts-->	
+<link href="css/component.css" rel="stylesheet" type="text/css"  />
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+<!-- start-smoth-scrolling -->
+</head>
+<body class="cbp-spmenu-push">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-30027142-1', 'w3layouts.com');
+  ga('send', 'pageview');
+</script>
+<!--header-->
+	<div id="home" class="header-section">
+			<div class="container">
+				<div class="header-top">
+					<div class="top-nav">
+						<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s2">
+							<h3>Menu</h3>
+							<ul>
+								<li><a href="#home" class="scroll">Home</a></li>
+								<li><a href="#about" class="scroll">About</a></li>
+								<li><a href="#services" class="scroll">Services</a></li>
+								<li><a href="#Speciality" class="scroll">Speciality</a></li>
+								<li><a href="#testimonials" class="scroll">Testimonials</a></li>
+								<li><a href="#news" class="scroll">News</a></li>
+								<li><a href="#mail" class="scroll">Mail Us</a></li>
+							</ul>
+						</nav>
+						<div class="main buttonset">	
+								<!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
+								<button id="showRightPush"><img src="images/menu.png" alt=""/></button>
+								<!--<span class="menu"></span>-->
+						</div>
+						<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+						<script src="js/classie.js"></script>
+						<script>
+						var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+						showRightPush = document.getElementById( 'showRightPush' ),
+						body = document.body;
+
+						showRightPush.onclick = function() {
+							classie.toggle( this, 'active' );
+							classie.toggle( body, 'cbp-spmenu-push-toleft' );
+							classie.toggle( menuRight, 'cbp-spmenu-open' );
+							disableOther( 'showRightPush' );
+						};
+
+						function disableOther( button ) {
+							if( button !== 'showRightPush' ) {
+								classie.toggle( showRightPush, 'disabled' );
+							}
+						}
+					 </script>
+					</div>
+					<div class="header-logo">
+						<h1><a href="index.html"></a></h1>
+					</div>
+					<div class="header-search">
+						<form>
+							<input type="text" value="" placeholder="Search...">
+							<input type="submit" value="">
+						</form>
+					</div>
+					<div class="social">
+						<ul>
+							<li><a href="#" class="facebook"> </a></li>
+							<li><a href="#" class="facebook twitter"> </a></li>
+							<li><a href="#" class="facebook chrome"> </a></li>
+							<li><a href="#" class="facebook dribbble"> </a></li>
+						</ul>
+					</div>
+					<div class="clearfix"> </div>
+					
+				</div>
+				<div class="banner-grids">
+					<div class="banner-img">
+						<img src="images/banner3.png" alt="" />
+					</div>
+					<div class="banner-left">
+						<div class="logo">
+							<h1><a href="index.html">Inaiburger</a></h1>
+						</div>
+						<div class="banner-info">
+							<h5>В нашей бургерной вы сможете собрать собственный бургер</h5>
+							<p>А также вы сможете попробовать наши фирменные бургеры от лучших поваров. </p>
+							<div class="banner-buttons">
+								<div class="banner-button white-button">
+									<a href="#">Нажмите</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+	</div>
+	<!-- welcome -->
+	<div class="welcome">
+		<!-- container -->
+		<div class="container">
+			<div class="col-md-6 welcome-left">
+				<h2>Welcome</h2>
+				<h5>Praesent libero lacus, tincidunt sit amet iaculis quis</h5>
+				<p>Suspendisse vehicula finibus mauris nec suscipit. Praesent libero lacus, tincidunt sit amet iaculis quis, fringilla in libero. Pellentesque nunc nibh, malesuada sed luctus vel,</p>
+			</div>
+			<div class="col-md-6 welcome-right">
+				<img src="images/3.png" alt="" />
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<!-- //container -->
+	</div>
+	<!-- //welcome -->
+	<!-- about -->
+	<div id="about" class="about">
+		<div class="col-md-6 about-left">
+			
+		</div>
+		<div class="col-md-6 about-right">
+			<h3>About Us</h3>
+			<p>Ut efficitur finibus dolor ac pellentesque. Pellentesque sed tempor neque, ac consequat odio. Pellentesque non iaculis magna. Integer vel massa metus. Vestibulum ac tortor at lorem commodo venenatis in a quam.
+			Ut efficitur finibus dolor ac pellentesque. Pellentesque sed tempor neque, ac consequat odio. Pellentesque non iaculis magna ac pellentesque. Pellentesque sed tempor neque, ac consequat odio. Pellentesque non iaculis magna. Integer vel massa metus. Vestibulum ac tortor at lorem commodo venenatis in a quam.</p>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	<!-- //about -->
+	<!-- services -->
+	<div id="services" class="services">
+		<!-- container -->
+		<div class="container">
+			<div class="services-info">
+				<h3>Services</h3>
+			</div>
+			<div class="services-top-grids">
+			  <div class="col-md-4 services-grid" style="visibility: visible; -webkit-animation-delay: 0.4s;">
+				   <div class="chrty">
+						<figure class="icon">
+							 <span class="glyphicon-icon glyphicon-cog" aria-hidden="true"></span>
+						</figure>
+						<h3>Pellentesque tempor</h3>
+						<p>Curabitur convallis rutrum erat nec vestibulum. Sed iaculis hendrerit lectus sit amet lobortis vulputate magna finibus molestie tellus.</p>
+				  </div>
+			  </div>
+			  <div class="col-md-4 services-grid" style="visibility: visible; -webkit-animation-delay: 0.4s;">
+				   <div class="chrty">
+						<figure class="icon">
+							<span class="glyphicon-icon glyphicon-time" aria-hidden="true"></span>
+						</figure>						
+						<h3>Hendrerit lectus</h3>
+						<p>Curabitur convallis rutrum erat nec vestibulum. Sed iaculis hendrerit lectus sit amet lobortis vulputate magna finibus molestie tellus.</p>
+				  </div>
+			  </div>
+			  <div class="col-md-4 services-grid" style="visibility: visible; -webkit-animation-delay: 0.4s;">
+				   <div class="chrty">
+						 <figure class="icon">
+							<span class="glyphicon-icon glyphicon-glass" aria-hidden="true"></span>
+						</figure>						
+						<h3>Lobortis vulputate</h3>
+						<p>Curabitur convallis rutrum erat nec vestibulum. Sed iaculis hendrerit lectus sit amet lobortis vulputate magna finibus molestie tellus.</p>
+				  </div>
+			  </div>
+			  <div class="clearfix"></div>
+		 </div>
+		 <div class="services-top-grids">
+			  <div class="col-md-4 services-grid" style="visibility: visible; -webkit-animation-delay: 0.4s;">
+				   <div class="chrty">
+						<figure class="icon">
+							 <span class="glyphicon-icon glyphicon-edit" aria-hidden="true"></span>
+						</figure>
+						<h3>Pellentesque tempor</h3>
+						<p>Curabitur convallis rutrum erat nec vestibulum. Sed iaculis hendrerit lectus sit amet lobortis vulputate magna finibus molestie tellus.</p>
+				  </div>
+			  </div>
+			  <div class="col-md-4 services-grid" style="visibility: visible; -webkit-animation-delay: 0.4s;">
+				   <div class="chrty">
+						<figure class="icon">
+							<span class="glyphicon-icon glyphicon-asterisk" aria-hidden="true"></span>
+						</figure>						
+						<h3>Hendrerit lectus</h3>
+						<p>Curabitur convallis rutrum erat nec vestibulum. Sed iaculis hendrerit lectus sit amet lobortis vulputate magna finibus molestie tellus.</p>
+				  </div>
+			  </div>
+			  <div class="col-md-4 services-grid" style="visibility: visible; -webkit-animation-delay: 0.4s;">
+				   <div class="chrty">
+						 <figure class="icon">
+							<span class="glyphicon-icon glyphicon-thumbs-up" aria-hidden="true"></span>
+						</figure>						
+						<h3>Lobortis vulputate</h3>
+						<p>Curabitur convallis rutrum erat nec vestibulum. Sed iaculis hendrerit lectus sit amet lobortis vulputate magna finibus molestie tellus.</p>
+				  </div>
+			  </div>
+			  <div class="clearfix"></div>
+		 </div>
+		</div>
+		<!-- //container -->
+	</div>
+	<!-- //services -->
+	<!-- gallery -->
+	<div id="Speciality" class="gallery">
+			<!-- container -->
+			<div class="container">
+				<div class="gallery-info">
+					<h3>Our Speciality</h3>
+				</div>
+				<div class="gallery-grids-top">
+					<div class="gallery-grids gallery-grids-middle">
+						<div class="col-md-4 gallery-grid middle-gallery-grid">
+							<a class="example-image-link" href="images/6.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/6.jpg" alt=""/></a>
+						</div>
+						<div class="col-md-4 gallery-grid middle-gallery-grid">
+							<a class="example-image-link" href="images/10.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/10.jpg" alt=""/></a>
+						</div>
+						<div class="col-md-4 gallery-grid middle-gallery-grid">
+							<a class="example-image-link" href="images/11.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/11.jpg" alt=""/></a>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="gallery-grids">
+						<div class="col-md-3 gallery-grid">
+							<a class="example-image-link" href="images/8.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/8.jpg" alt=""/></a>
+						</div>
+						<div class="col-md-3 gallery-grid">
+							<a class="example-image-link" href="images/5.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/5.jpg" alt=""/></a>
+						</div>
+						<div class="col-md-3 gallery-grid">
+							<a class="example-image-link" href="images/6.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/6.jpg" alt=""/></a>
+						</div>
+						<div class="col-md-3 gallery-grid">
+							<a class="example-image-link" href="images/7.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/7.jpg" alt=""/></a>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="gallery-grids">
+						<div class="col-md-6 gallery-grid-top">
+							<div class="gallery-grid-top-img">
+								<a class="example-image-link" href="images/4.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/4.jpg" alt=""/></a>
+							</div>
+						</div>
+						<div class="col-md-6 gallery-right">
+							<div class="gallery-right-grid">
+								<div class="col-md-6 gallery-grid-img">
+									<a class="example-image-link" href="images/5.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/5.jpg" alt=""/></a>
+								</div>
+								<div class="col-md-6 gallery-grid-img">
+									<a class="example-image-link" href="images/6.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/6.jpg" alt=""/></a>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="gallery-right-grid gallery-right-top-grid">
+								<div class="col-md-6 gallery-grid-img">
+									<a class="example-image-link" href="images7.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/7.jpg" alt=""/></a>
+								</div>
+								<div class="col-md-6 gallery-grid-img">
+									<a class="example-image-link" href="images/8.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/8.jpg" alt=""/></a>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<script src="js/lightbox-plus-jquery.min.js"></script>
+				</div>
+			</div>
+			<!-- //container -->
+	</div>
+	<!-- //gallery -->
+	<!-- testimonials -->
+	<div id="testimonials" class="testimonials">
+		<!-- container -->
+		<div class="container">
+			<div class="testimonials-info">
+				<h3>Testimonials</h3>
+			</div>
+			<div class="testimonials-grids">
+					<script src="js/responsiveslides.min.js"></script>
+					<script>
+						// You can also use "$(window).load(function() {"
+						$(function () {
+						  // Slideshow 4
+						  $("#slider3").responsiveSlides({
+							auto: true,
+							pager: true,
+							nav: false,
+							speed: 500,
+							namespace: "callbacks",
+							before: function () {
+							  $('.events').append("<li>before event fired.</li>");
+							},
+							after: function () {
+							  $('.events').append("<li>after event fired.</li>");
+							}
+						  });
+					
+						});
+					</script>
+					<div  id="top" class="callbacks_container">
+						<ul class="rslides" id="slider3">
+							<li>
+								<div class="testimonials-grid">
+									<img src="images/t1.jpg" alt="" />
+									<p><span>"</span>Suspendisse laoreet convallis ultricies. In facilisis erat nibh, vitae venenatis quam malesuada vel. Nunc ultricies libero et ultrices venenatis. Nulla varius egestas ultrices. Nulla a tempus lacus, sit amet iaculis odio.<span>"</span></p>
+								</div>
+							</li>
+							<li>
+								<div class="testimonials-grid">
+									<img src="images/t2.jpg" alt="" />
+									<p><span>"</span>Laoreet suspendisse convallis ultricies. In facilisis erat nibh, vitae venenatis quam malesuada vel. Nunc ultricies libero et ultrices venenatis. Nulla varius egestas ultrices. Nulla a tempus lacus, sit amet odio iaculis.<span>"</span></p>
+								</div>
+							</li>
+						</ul>
+					</div>
+			</div>
+		</div>
+		<!-- //container -->
+	</div>
+	<!-- //testimonials -->
+	<!-- news -->
+	<div id="news" class="news">
+		<!-- container -->
+		<div class="container">
+			<div class="news-info">
+				<h3>News &amp; Events</h3>
+			</div>
+			<div class="news-grids">
+				<div class="col-md-6 news-grid">
+					<img src="images/12.jpg" alt="">
+					<div class="news-grid-info">
+						<a href="#">Donec cursus felis a enim egestas</a>
+						<p class="date">19th June | 10:00 - 12:00</p>
+						<p class="text">Etiam ex lorem cursus vitae placerat suscipit dapibus tortor sed nec augue vitae placerat suscipit dapibus tortor sed nec augue enim rhoncus ultricies eros interdum aliquam eros iaculis id.</p>
+					</div>
+				</div>
+				<div class="col-md-6 news-grid">
+					<img src="images/13.jpg" alt="">
+					<div class="news-grid-info">
+						<a href="#">Donec cursus felis a enim egestas</a>
+						<p class="date">24th May | 09:00 - 11:00</p>
+						<p class="text">Etiam ex lorem cursus vitae placerat suscipit dapibus tortor sed nec augue vitae placerat suscipit dapibus tortor sed nec augue enim rhoncus ultricies eros interdum aliquam eros iaculis id.</p>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!-- //container -->
+	</div>
+	<!-- //news -->
+	<!-- contact -->
+	<div id="mail" class="contact">
+		<!-- container -->
+		<div class="container">
+			<div class="contact-info">
+				<h3>Contact Us</h3>
+			</div>
+			<div class="contact-grids">
+				<div class="col-md-4 contact-grid">
+					<div class="contact-grid-info">
+						<h3>Popular</h3>
+					</div>
+					<div class="contact-grid-list">
+						<ul>
+							<li><a href="#">Proin placerat ipsum et rutrum</a><li>
+							<li><a href="#">Vestibulum et ligula lectus	</a><li>
+							<li><a href="#">Praesent in augue ut purus</a><li>
+							<li><a href="#">Proin semper ut ligula sit amet</a><li>
+							<li><a href="#">Vestibulum hendrerit lacus ut mi</a><li>
+							<li><a href="#">Fusce sollicitudin nunc est</a><li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-4 contact-grid">
+					<div class="contact-grid-info">
+						<h3>Address</h3>
+					</div>
+					<div class="contact-grid-list">
+						<h4>Headquarters</h4>
+						<p>123 T. Globel Place.
+							<span>CG 09-123</span>
+							Newyork, Ba. 4567
+						</p>
+						<h4>Get In Touch</h4>
+						<p>Telephone : +1 234 567 9871
+							<span>FAX : +1 234 567 9871</span>
+							E-mail : <a href="mailto:info@example.com">mail@example.com</a>
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4 contact-grid">
+					<div class="contact-grid-info">
+						<h3>Stay in touch</h3>
+					</div>
+					<div class="contact-grid-list">
+						<form>
+							<input type="text" placeholder="Name" required="">
+							<input type="text" placeholder="Email" required="">
+							<textarea placeholder="Message" required=""></textarea>
+							<input type="submit" value="SEND">
+						</form>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!-- //container -->
+	</div>
+	<!-- //contact -->
+	<!-- footer -->
+	<div class="footer">
+		<!-- container -->
+		<div class="container">
+			<p>Copyrights © 2015 Auberge . All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+		</div>
+		<!-- //container -->
+	</div>
+	<!-- //footer -->
+	<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+								</script>
+									<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	<!-- content-Get-in-touch -->
+	<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+</body>
+</html>
