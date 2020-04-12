@@ -48,7 +48,7 @@ class LoginScreen extends StatelessWidget {
         onSignup: _authUser,
         // showDebugButtons: true,
         theme: LoginTheme(
-          primaryColor: Colors.brown,
+          primaryColor: Color.fromRGBO(163, 8, 11, 80),
         ),
         onSubmitAnimationCompleted: () {
           Navigator.of(context).pushReplacement(MaterialPageRoute(

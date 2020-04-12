@@ -1,5 +1,5 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'news_screen.dart';
 import 'card_screen.dart';
 import 'dashboard_screen.dart';
 
@@ -16,12 +16,12 @@ class _TabsScreenState extends State<TabsScreen> {
     _pages = [
       {'page': DashboardScreen(), 'title': 'InaiBurger'},
       {'page': NewsScreen(), 'title': 'News'},
-      {'page': CardScreen(), 'title': 'Card'},
+      {'page': AccountScreen(), 'title': 'Map'},
     ];
     super.initState();
   }
 
-  void _selectPage(int index) {
+  _selectPage(int index) {
     setState(() {
       _selectPageIndex = index;
     });
@@ -32,26 +32,47 @@ class _TabsScreenState extends State<TabsScreen> {
     return Scaffold(
       drawer: AppDrawer(),
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(163, 8, 11, 80),
         centerTitle: true,
         title: Text(_pages[_selectPageIndex]['title']),
       ),
       body: _pages[_selectPageIndex]['page'],
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.black,
-        animationCurve: Curves.fastLinearToSlowEaseIn,
-        color: Colors.brown,
-        items: <Widget>[
-          Icon(
-            Icons.home,
-            size: 30,
-            color: Colors.white,
-          ),
-          Icon(Icons.receipt, size: 30, color: Colors.white),
-          Icon(Icons.credit_card, size: 30, color: Colors.white),
-        ],
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color.fromRGBO(163, 8, 11, 80),
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _selectPageIndex,
+        selectedItemColor: Colors.amberAccent,
+        selectedFontSize: 15,
+        unselectedItemColor: Colors.white,
         onTap: (index) {
           _selectPage(index);
         },
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              size: 30,
+            ),
+            title: Text(
+              'Home',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.receipt,
+              size: 30,
+            ),
+            title: Text('News', style: TextStyle(color: Colors.white)),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.credit_card,
+              size: 30,
+            ),
+            title: Text('Card', style: TextStyle(color: Colors.white)),
+          ),
+        ],
       ),
     );
   }
