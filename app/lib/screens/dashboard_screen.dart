@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:inaiburger/models/component_images.dart';
 
-import 'card_screen.dart';
+import 'constructor_screen.dart';
+import 'crazy_construcktor_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override
@@ -16,8 +17,8 @@ class DashboardScreen extends StatelessWidget {
     };
     return Scaffold(
         backgroundColor: Colors.white,
-        body: Stack(children: <Widget>[
-          Container(
+        body: Column(children: <Widget>[
+          Expanded(
             child: GridView.count(
               physics: BouncingScrollPhysics(),
               crossAxisCount: 2,
@@ -55,35 +56,35 @@ class DashboardScreen extends StatelessWidget {
               }),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-                      child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  FloatingActionButton.extended(
-                    heroTag: "btn1",
-                      backgroundColor: Colors.redAccent,
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/constructor',
-                            arguments: intArguments);
-                      },
-                      label: Container(width: MediaQuery.of(context).size.width*0.3,child: Center(child: Text('Last')))),
-                  FloatingActionButton.extended(
-                    heroTag: "btn2",
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ConstructorScreen()),
-                      );
-                    },
-                    label: Container(width: MediaQuery.of(context).size.width*0.3,child: Center(child: Text('Custom'))),
-                    backgroundColor: Colors.redAccent,
-                  )
-                ],
-              ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              FlatButton(
+                  // heroTag: "btn1",
+                  color: Colors.redAccent,
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/constructor',
+                        arguments: intArguments);
+                  },
+                  child: Container(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      child: Center(child: Text('Classic',style: TextStyle(color: Colors.white),)))),
+              FlatButton(
+                // heroTag: "btn2",
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CrazyConstructorScreen()),
+                  );
+                },
+                child: Container(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    child: Center(child: Text('Crazy',style: TextStyle(color: Colors.white)))),
+                color: Colors.redAccent,
+              )
+            ],
           ),
-          
         ]));
   }
 }

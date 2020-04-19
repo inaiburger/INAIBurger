@@ -11,6 +11,7 @@ class NewsScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
+                  print('Card:  $card');
                   // Navigator.of(context)
                   //         .pushNamed('/detail_news', arguments: index);
                 },
@@ -67,8 +68,8 @@ class NewsScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
-                          Icon(Icons.star),
-                          Icon(Icons.favorite_border)
+                          Icon(Icons.star_border,color: Colors.redAccent,),
+                          Icon(Icons.favorite_border,color: Colors.redAccent)
                         ],
                       ),
                     )

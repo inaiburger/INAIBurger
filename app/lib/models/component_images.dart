@@ -10,14 +10,14 @@ List<String> componentImagesLettuce = [
   'assets/images/green2.png',
   'assets/images/green3.png',
   'assets/images/green4.png',
-  'assets/bunbot.png'
+  'assets/images/lettuce.png'
 ];
 List<String> componentImagesGar = [
   'assets/images/tomato.png',
   'assets/images/cheese.png',
   'assets/images/onion.png',
   'assets/images/egg.png',
-  'assets/bunbot.png'
+  'assets/images/tomato.png'
 ];
 List<String> componentImagesMeat = [
   'assets/images/meat5.png',
@@ -43,63 +43,76 @@ List<String> componentImagesBunbot = [
 
 List dummyburgers = [
   [
-    'Burger 1',
+    'Toasty Buns Burgers',
     'assets/images/burger1.png',
     250,
     'detail of burger 1 detail of burger 1 detail of burger 1 detail of burger 1 detail of burger 1 detail of burger 1 '
   ],
   [
-    'Burger 2',
+    'Backyard Burgers',
     'assets/images/burger2.png',
     300,
     'detail of burger 2 detail of burger 2 detail of burger 2 detail of burger 2 detail of burger 2 detail of burger 2 '
   ],
   [
-    'Burger 3',
+    'Beefcakes Burgers',
     'assets/images/burger3.png',
     180,
     'detail of burger 3 detail of burger 3 detail of burger 3 detail of burger 3 detail of burger 3 detail of burger 3 '
   ],
   [
-    'Burger 4',
+    'Buzz Burgers',
     'assets/images/burger4.png',
     150,
     'detail of burger 4 detail of burger 4 detail of burger 4 detail of burger 4 detail of burger 4 detail of burger 4 '
   ],
   [
-    'Burger 5',
+    'Buffalo Burgers',
     'assets/images/burger6.png',
     350,
     'detail of burger 5 detail of burger 5 detail of burger 5 detail of burger 5 detail of burger 5 detail of burger 5 '
   ],
   [
-    'Burger 6',
+    'Knuckle Burger',
     'assets/images/burger7.png',
-    666,
+    500,
     'detail of burger 6 detail of burger 6 detail of burger 6 detail of burger 6 detail of burger 6 detail of burger 6 '
   ],
   [
-    'Burger 8',
+    'Luger Burger',
     'assets/images/burger1.png',
-    666,
+    300,
     'detail of burger 6 detail of burger 6 detail of burger 6 detail of burger 6 detail of burger 6 detail of burger 6 '
   ],
   [
-    'Burger 8',
+    'The Lola Burger',
     'assets/images/burger3.png',
-    666,
+    180,
     'detail of burger 6 detail of burger 6 detail of burger 6 detail of burger 6 detail of burger 6 detail of burger 6 '
   ],
 ];
-
-
 
 List dummynews = [
-  ['Самый вкусный Черный бургер от Бекболота','assets/images/burger9.jpg'],
-  ['Самый вкусный Черный бургер от Бекболота','assets/images/burger9.jpg'],
-  ['Самый вкусный Черный бургер от Бекболота','assets/images/burger9.jpg'],
-  ['Самый вкусный Черный бургер от Бекболота','assets/images/burger9.jpg'],
-  ['Самый вкусный Черный бургер от Бекболота','assets/images/burger9.jpg'],
-  ['Самый вкусный Черный бургер от Бекболота','assets/images/burger9.jpg'],
-  ['Самый вкусный Черный бургер от Бекболота','assets/images/burger9.jpg'],
+  ['Самый вкусный Черный бургер от Бекболота', 'assets/images/burger9.jpg'],
+  ['Самый вкусный Черный бургер от Бекболота', 'assets/images/burger9.jpg'],
+  ['Самый вкусный Черный бургер от Бекболота', 'assets/images/burger9.jpg'],
+  ['Самый вкусный Черный бургер от Бекболота', 'assets/images/burger9.jpg'],
+  ['Самый вкусный Черный бургер от Бекболота', 'assets/images/burger9.jpg'],
+  ['Самый вкусный Черный бургер от Бекболота', 'assets/images/burger9.jpg'],
+  ['Самый вкусный Черный бургер от Бекболота', 'assets/images/burger9.jpg'],
 ];
+
+List card = [];
+
+Map<String, List> burgerIdimages = {
+  'Toasty Buns Burgers': ['assets/images/burger1.png',250,1],
+  'Backyard Burgers': ['assets/images/burger2.png',300,1],
+  'Beefcakes Burgers': ['assets/images/burger3.png',180,1],
+  'Buzz Burgers': ['assets/images/burger4.png',150,1],
+  'Buffalo Burgers': ['assets/images/burger6.png',666,1],
+  'Knuckle Burger': ['assets/images/burger7.png',500,1],
+  'Luger Burger': ['assets/images/burger1.png',300,1],
+  'The Lola Burger': ['assets/images/burger3.png',180,1],
+  'CrazyBurger':['assets/images/burger9.jpg',1111,1]
+};
+  List<int> transaction = [];

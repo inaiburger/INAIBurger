@@ -42,13 +42,13 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FlutterLogin(
-        title: '',
-        logo: 'assets/burger.png',
+        title: 'InaiBurger',
+        // logo: 'assets/images/burger2.png',
         onLogin: _authUser,
         onSignup: _authUser,
         // showDebugButtons: true,
         theme: LoginTheme(
-          primaryColor: Color.fromRGBO(163, 8, 11, 80),
+          primaryColor: Color.fromRGBO(163, 8, 11, 1),
         ),
         onSubmitAnimationCompleted: () {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
