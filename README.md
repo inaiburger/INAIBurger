@@ -22,7 +22,9 @@ https://www.figma.com/file/252t9U42pCCSHQAeDq73mg/INAIBurger?node-id=0%3A1
 
 ## Ссылка на веб-сайт:
 
-## Ссылка на административную модель:
+## Ссылка на административную панель:
+
+https://sleepy-temple-85699.herokuapp.com/admin/
 
 ## Ccылка на Бизнес процес диаграмму:
 
