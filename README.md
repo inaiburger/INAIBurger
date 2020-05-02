@@ -22,6 +22,8 @@ https://www.figma.com/file/252t9U42pCCSHQAeDq73mg/INAIBurger?node-id=0%3A1
 
 ## Ссылка на веб-сайт:
 
+https://inaiburger.github.io/ 
+
 ## Ссылка на административную панель:
 
 https://sleepy-temple-85699.herokuapp.com/admin/
