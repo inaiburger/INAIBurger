@@ -1,3 +1,4 @@
+import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:flutter/material.dart';
 import '../models/component_images.dart';
 
@@ -5,6 +6,13 @@ class CartScreen extends StatefulWidget {
   @override
   _CartScreenState createState() => _CartScreenState();
 }
+
+List<List> imagelists = [
+  componentImagesMeat,
+  componentImagesLettuce,
+  componentImagesGar
+];
+
 
 class _CartScreenState extends State<CartScreen> {
   int total = 0;
@@ -24,6 +32,9 @@ class _CartScreenState extends State<CartScreen> {
                 onPressed: () {
                   setState(() {
                     card.remove('${card[index]}');
+                    addToCart.clear();
+                    columnSuper.clear();
+                    print(addToCart);
                   });
                   return Navigator.pop(context);
                 },
@@ -105,9 +116,9 @@ class _CartScreenState extends State<CartScreen> {
     } else {
       return Column(children: <Widget>[
         FlatButton(
-                  child: Text('Debug Print'),
-                  onPressed: () => print(card),
-                ),
+          child: Text('Debug Print'),
+          onPressed: () => print(card),
+        ),
         Expanded(
           child: ListView.builder(
               physics: BouncingScrollPhysics(),
@@ -130,14 +141,23 @@ class _CartScreenState extends State<CartScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Container(
-                          height: 80,
-                          width: 80,
-                          child: Image.asset(
-                            burgerIdimages['${card[index]}'][0].toString(),
-                            fit: BoxFit.contain,
+                        if ('${card[index]}' == 'CrazyBurger')
+                          Container(
+                              width: 80,
+                              child: ColumnSuper(
+                                innerDistance: -17,
+                                invert: true,
+                                children: columnSuper,
+                              ))
+                        else
+                          Container(
+                            height: 80,
+                            width: 80,
+                            child: Image.asset(
+                              burgerIdimages[card[index]][0],
+                              fit: BoxFit.contain,
+                            ),
                           ),
-                        ),
                         Expanded(
                           child: Column(
                             children: <Widget>[
@@ -166,13 +186,12 @@ class _CartScreenState extends State<CartScreen> {
                                   ),
                                   Container(
                                     height: 30,
-                                    decoration: BoxDecoration(
-                                        border:
-                                            Border.all(color: Colors.black54)),
                                     child: Row(
                                       children: <Widget>[
                                         Container(
-                                          color: Colors.black38,
+                                          decoration: BoxDecoration(
+                                            color: Colors.black38,borderRadius: BorderRadius.all(Radius.circular(6))
+                                          ),
                                           width: 30,
                                           height: 30,
                                           child: InkWell(
@@ -195,12 +214,14 @@ class _CartScreenState extends State<CartScreen> {
                                           ),
                                         ),
                                         Container(
-                                            width: 30,
+                                            width: 20,
                                             child: Center(
                                                 child: Text(
                                                     '${burgerIdimages[card[index]][2]}'))),
                                         Container(
-                                          color: Colors.black38,
+                                          decoration: BoxDecoration(
+                                            color: Colors.black38,borderRadius: BorderRadius.all(Radius.circular(6))
+                                          ),
                                           width: 30,
                                           height: 30,
                                           child: InkWell(
@@ -238,17 +259,6 @@ class _CartScreenState extends State<CartScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                // Container(
-                //   width: MediaQuery.of(context).size.width * 0.4,
-                //   child: Center(
-                //     child: totalText()
-                //     // Text(
-                //     //   'Total:  $total\$',
-                //     //   style: TextStyle(fontSize: 20),
-                //     // ),
-                //   ),
-                // ),
-
                 FlatButton(
                   child: Container(
                       width: MediaQuery.of(context).size.width * 0.3,

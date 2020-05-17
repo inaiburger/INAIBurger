@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'tab_screen.dart';
+import 'package:http/http.dart' as http;
 
 const users = const {
   'dribbble@gmail.com': '12345',
@@ -28,6 +29,23 @@ class LoginScreen extends StatelessWidget {
     });
   }
 
+  Future<void> request() async {
+    var client = http.Client();
+    try {
+      var uriResponse = await client.post(
+          'https://sleepy-temple-85699.herokuapp.com/docs/swagger/auth/jwt/refresh/',
+          body: {
+            "refresh":
+                "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTU4OTM1Mzg4OCwianRpIjoiYmU4MTRhODc2OWRhNGJhYThjODc0YzQ3N2RjMmZkOWIiLCJ1c2VyX2lkIjoxfQ.gBoA4G-G0nH5PWPD-yf8yJhPymjSBC2hMIBdA5Yt10g",
+            "access":
+                "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTg5MjY3Nzg4LCJqdGkiOiJjMDFjOWI4YzVkYjQ0MDA1ODNkOGExMjk1NGVhYmNiZSIsInVzZXJfaWQiOjF9.vEPPBx-mAtP-eMAUni-izzbNFdUy4YnUBa9ZDzC5NLQ"
+          });
+      print(await client.get(uriResponse.body));
+    } finally {
+      client.close();
+    }
+  }
+
   Future<String> _recoverPassword(String name) {
     print('Name: $name');
     return Future.delayed(loginTime).then((_) {
@@ -46,7 +64,7 @@ class LoginScreen extends StatelessWidget {
         // logo: 'assets/images/burger2.png',
         onLogin: _authUser,
         onSignup: _authUser,
-        // showDebugButtons: true,
+        showDebugButtons: true,
         theme: LoginTheme(
           primaryColor: Color.fromRGBO(163, 8, 11, 1),
         ),

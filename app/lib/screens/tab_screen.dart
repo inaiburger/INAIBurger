@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:inaiburger/screens/contacts_screen.dart';
+import 'package:inaiburger/screens/custom_constructor.dart';
+import 'constrictor_menu_screen.dart';
 import 'cart_screen.dart';
 import 'news_screen.dart';
 import 'map_screen.dart';
@@ -16,6 +20,7 @@ class _TabsScreenState extends State<TabsScreen> {
   void initState() {
     _pages = [
       {'page': DashboardScreen(), 'title': 'InaiBurger'},
+      {'page': ConstructorMenu(), 'title': 'Burger Constructor'},
       {'page': NewsScreen(), 'title': 'News'},
       {'page': MapScreen(), 'title': 'Map'},
       {'page': CartScreen(), 'title': 'Cart'},
@@ -62,7 +67,17 @@ class _TabsScreenState extends State<TabsScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.receipt,
+              Icons.widgets,
+              size: 30,
+            ),
+            title: Text(
+              'Constructor',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.calendar_today,
               size: 30,
             ),
             title: Text('News', style: TextStyle(color: Colors.white)),
@@ -105,12 +120,25 @@ class AppDrawer extends StatelessWidget {
               ),
               _createDrawerItem(
                 icon: Icons.contacts,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => ContactScreen()),
+                  );
+                },
                 text: 'Contacts',
               ),
               _createDrawerItem(
-                icon: Icons.settings,
-                text: 'Settings',
-              ),
+                  icon: Icons.settings,
+                  text: 'Settings',
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                CustomConstructor()));
+                  }),
               Divider(
                 color: Colors.black,
               ),
@@ -147,22 +175,23 @@ class AppDrawer extends StatelessWidget {
 
   Widget _createHeader() {
     return Container(
-      color: Color.fromRGBO(163, 8, 11, 1),
+      // color: Color.fromRGBO(163, 8, 11, 1),
       child: DrawerHeader(
           margin: EdgeInsets.zero,
           padding: EdgeInsets.zero,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  fit: BoxFit.contain, image: AssetImage('assets/images/logo.jpg'))),
-          child: Stack(children: <Widget>[
-            Positioned(
-                bottom: 12.0,
-                left: 16.0,
-                child: Text("inai Burger",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w500))),
+          child: Row(children: <Widget>[
+            Container(
+              width: 40,
+              height: 40,
+              child: Image.asset('assets/images/logo.jpg'),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              'InaiBurger',
+              style: TextStyle(fontSize: 30),
+            )
           ])),
     );
   }

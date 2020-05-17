@@ -37,21 +37,21 @@ class _MapScreenState extends State<MapScreen> {
               position: LatLng(42.833834, 74.621427),
               consumeTapEvents: true,
               infoWindow: InfoWindow(
-                  title: 'InaiBurger CosmoPark', snippet: 'bekbolot kot'),
+                  title: 'InaiBurger CosmoPark', snippet: '2 stock'),
               onTap: () {}),
           Marker(
               markerId: MarkerId('marker_2'),
               position: LatLng(42.857489, 74.609731),
               consumeTapEvents: true,
               infoWindow:
-                  InfoWindow(title: 'InaiBurger Vefa', snippet: 'bekbolot kot'),
+                  InfoWindow(title: 'InaiBurger Vefa', snippet: '3 stock'),
               onTap: () {}),
           Marker(
               markerId: MarkerId('marker_3'),
               position: LatLng(42.875990, 74.614007),
               consumeTapEvents: true,
               infoWindow:
-                  InfoWindow(title: 'InaiBurger Tsum', snippet: 'bekbolot kot'),
+                  InfoWindow(title: 'InaiBurger Gum', snippet: '4 stock'),
               onTap: () {}),
         ]),
         myLocationEnabled: true,

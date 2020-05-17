@@ -8,11 +8,11 @@ class ConstructorScreen extends StatefulWidget {
 
 class _ConstructorScreenState extends State<ConstructorScreen> {
   int img1 = 0;
-  int img2 = 1;
-  int img3 = 2;
-  int img4 = 3;
-  int img5 = 4;
-  int img6 = 4;
+  int img2 = 0;
+  int img3 = 0;
+  int img4 = 0;
+  int img5 = 0;
+  int img6 = 0;
   Map<String, int> customBurger = {
     'img1': 1,
     'img2': 1,
@@ -21,6 +21,8 @@ class _ConstructorScreenState extends State<ConstructorScreen> {
     'img5': 1,
     'img6': 1,
   };
+  double hgt = 80;
+
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context).settings.arguments;
@@ -41,107 +43,67 @@ class _ConstructorScreenState extends State<ConstructorScreen> {
       Scaffold(
           appBar: AppBar(
             title: Text("Make Burger on your own"),
-            backgroundColor: Colors.redAccent,
+            backgroundColor: Color.fromRGBO(163, 8, 11, 1),
           ),
           backgroundColor: Colors.transparent,
           body: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             child: Center(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    height: 20,
-                  ),
-                  Container(
-                      height: 90,
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: Ink.image(
-                        image:
-                            AssetImage(componentImages[customBurger['img1']]),
-                        fit: BoxFit.fitWidth,
-                        child: InkWell(
-                          onTap: () {
-                            showComponents(0);
-                          },
-                        ),
-                      )),
-                  Container(
-                      height: 90,
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: Ink.image(
-                        image: AssetImage(
-                            componentImagesLettuce[customBurger['img2']]),
-                        fit: BoxFit.fitWidth,
-                        child: InkWell(
-                          onTap: () {
-                            showComponents(1);
-                          },
-                        ),
-                      )),
-                  Container(
-                      height: 90,
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: Ink.image(
-                        image: AssetImage(
-                            componentImagesMeat[customBurger['img3']]),
-                        fit: BoxFit.fitWidth,
-                        child: InkWell(
-                          onTap: () {
-                            showComponents(2);
-                          },
-                        ),
-                      )),
-                  Container(
-                      height: 90,
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: Ink.image(
-                        image: AssetImage(
-                            componentImagesGar[customBurger['img4']]),
-                        fit: BoxFit.fitWidth,
-                        child: InkWell(
-                          onTap: () {
-                            showComponents(3);
-                          },
-                        ),
-                      )),
-                  Container(
-                      height: 90,
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: Ink.image(
-                        image: AssetImage(
-                            componentImagesMeat2[customBurger['img5']]),
-                        fit: BoxFit.fitWidth,
-                        child: InkWell(
-                          onTap: () {
-                            showComponents(4);
-                          },
-                        ),
-                      )),
-                  Container(
-                      height: 90,
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: Ink.image(
-                        image: AssetImage(
-                            componentImagesBunbot[customBurger['img6']]),
-                        fit: BoxFit.fitWidth,
-                        child: InkWell(
-                          onTap: () {
-                            showComponents(5);
-                          },
-                        ),
-                      )),
-                  Divider(),
-                  FlatButton(
-                    child: Text(
-                      'Add to card',
-                      style: TextStyle(color: Colors.white),
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.7,
+                child: Column(
+                  children: [
+                    InkWell(
+                      onTap: (){
+                        showComponents(0);
+                      },
+                      child: Image.asset(componentImages[customBurger['img1']]),
                     ),
-                    color: Color.fromRGBO(163, 8, 11, 1),
-                    onPressed: () {
-                      print(customBurger);
-                    },
-                  )
-                ],
+                    
+                    InkWell(
+                      onTap: (){
+                        showComponents(1);
+                      },
+                      child: Image.asset(componentImagesLettuce[customBurger['img2']]),
+                    ),
+                    InkWell(
+                      onTap: (){
+                        showComponents(2);
+                      },
+                      child: Image.asset(componentImagesMeat[customBurger['img3']]),
+                    ),
+                    InkWell(
+                      onTap: (){
+                        showComponents(3);
+                      },
+                      child: Image.asset(componentImagesGar[customBurger['img4']]),
+                    ),
+                    InkWell(
+                      onTap: (){
+                        showComponents(4);
+                      },
+                      child: Image.asset(componentImagesMeat2[customBurger['img5']]),
+                    ),
+                    InkWell(
+                      onTap: (){
+                        showComponents(5);
+                      },
+                      child: Image.asset(componentImagesBunbot[customBurger['img6']]),
+                    ),
+                    SizedBox(height: 30,),
+                    Divider(),
+                    FlatButton(
+                      child: Text(
+                        'Add to card',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      color: Color.fromRGBO(163, 8, 11, 1),
+                      onPressed: () {
+                        print(customBurger);
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ))
@@ -155,18 +117,13 @@ class _ConstructorScreenState extends State<ConstructorScreen> {
         barrierLabel:
             MaterialLocalizations.of(context).modalBarrierDismissLabel,
         barrierColor: Colors.black45,
-        transitionDuration: const Duration(milliseconds: 200),
+        transitionDuration: const Duration(milliseconds: 300),
         pageBuilder: (BuildContext buildContext, Animation animation,
             Animation secondaryAnimation) {
           return Center(
             child: Container(
               decoration: BoxDecoration(
                   color: Colors.white70,
-                  // image: DecorationImage(
-                  //   image: new ExactAssetImage('assets/images/burger3.png'),
-                  //   fit: BoxFit.fitWidth,
-                  //   colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.3), BlendMode.dstATop)
-                  // ),
                   borderRadius: BorderRadius.all(Radius.circular(40))),
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.33,
@@ -245,7 +202,7 @@ class _ConstructorScreenState extends State<ConstructorScreen> {
                                       const EdgeInsets.symmetric(horizontal: 8),
                                   width: 200,
                                 ),
-                                Text("Burger cheto cheto vse vy lohi"),
+                                Text("Name of \$ingred"),
                               ]),
                         );
                       },

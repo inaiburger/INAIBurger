@@ -1,44 +1,38 @@
+import 'package:flutter/material.dart';
+
 List<String> componentImages = [
-  'assets/buntop.png',
+  'assets/images/buntop.png',
   'assets/images/buntop2.png',
-  'assets/images/buntop3.png',
-  'assets/images/buntop2.png',
-  'assets/images/buntop3.png',
+];
+List<String> componentImagesBunbot = [
+  'assets/images/bunbot.png',
+  'assets/images/bunbot2.png',
 ];
 List<String> componentImagesLettuce = [
   'assets/images/lettuce.png',
-  'assets/images/green2.png',
-  'assets/images/green3.png',
-  'assets/images/green4.png',
-  'assets/images/lettuce.png'
+  'assets/images/tomato.png',
+  'assets/images/ing-perb.png',
+  'assets/images/ing-marog.png',
+  'assets/images/ing-luk.png',
 ];
 List<String> componentImagesGar = [
-  'assets/images/tomato.png',
-  'assets/images/cheese.png',
-  'assets/images/onion.png',
-  'assets/images/egg.png',
-  'assets/images/tomato.png'
+  'assets/images/slicecheese.png',
+  'assets/images/cheese-dor.png',
+  'assets/images/ing-yaco.png',
 ];
 List<String> componentImagesMeat = [
   'assets/images/meat5.png',
+  'assets/images/coutlet-gov.png',
+  'assets/images/steyk-indeyka.png',
+  'assets/images/coutlet-losos.png',
   'assets/images/meat2.png',
-  'assets/images/meat3.png',
-  'assets/images/beckon.png',
-  'assets/images/chicken.png',
 ];
 List<String> componentImagesMeat2 = [
   'assets/images/meat5.png',
+  'assets/images/coutlet-gov.png',
+  'assets/images/steyk-indeyka.png',
+  'assets/images/coutlet-losos.png',
   'assets/images/meat2.png',
-  'assets/images/meat3.png',
-  'assets/images/beckon.png',
-  'assets/images/chicken.png',
-];
-List<String> componentImagesBunbot = [
-  'assets/bunbot.png',
-  'assets/images/bunbot2.png',
-  'assets/images/bunbot3.png',
-  'assets/images/bunbot4.png',
-  'assets/bunbot.png',
 ];
 
 List dummyburgers = [
@@ -94,7 +88,7 @@ List dummyburgers = [
 
 List dummynews = [
   ['Самый вкусный Черный бургер от Бекболота', 'assets/images/burger9.jpg'],
-  ['Самый вкусный Черный бургер от Бекболота', 'assets/images/burger9.jpg'],
+  ['Самый вкусный Черный бургер от Бекболота', 'assets/images/burger2.png'],
   ['Самый вкусный Черный бургер от Бекболота', 'assets/images/burger9.jpg'],
   ['Самый вкусный Черный бургер от Бекболота', 'assets/images/burger9.jpg'],
   ['Самый вкусный Черный бургер от Бекболота', 'assets/images/burger9.jpg'],
@@ -105,14 +99,25 @@ List dummynews = [
 List card = [];
 
 Map<String, List> burgerIdimages = {
-  'Toasty Buns Burgers': ['assets/images/burger1.png',250,1],
-  'Backyard Burgers': ['assets/images/burger2.png',300,1],
-  'Beefcakes Burgers': ['assets/images/burger3.png',180,1],
-  'Buzz Burgers': ['assets/images/burger4.png',150,1],
-  'Buffalo Burgers': ['assets/images/burger6.png',666,1],
-  'Knuckle Burger': ['assets/images/burger7.png',500,1],
-  'Luger Burger': ['assets/images/burger1.png',300,1],
-  'The Lola Burger': ['assets/images/burger3.png',180,1],
-  'CrazyBurger':['assets/images/burger9.jpg',1111,1]
+  'Toasty Buns Burgers': ['assets/images/burger1.png', 250, 1],
+  'Backyard Burgers': ['assets/images/burger2.png', 300, 1],
+  'Beefcakes Burgers': ['assets/images/burger3.png', 180, 1],
+  'Buzz Burgers': ['assets/images/burger4.png', 150, 1],
+  'Buffalo Burgers': ['assets/images/burger6.png', 666, 1],
+  'Knuckle Burger': ['assets/images/burger7.png', 500, 1],
+  'CrazyBurger': ['assets/images/burger9.jpg', 1111, 1]
 };
-  List<int> transaction = [];
+List<int> transaction = [];
+
+Map addToCart = {};
+List<Widget> columnSuper = [];
+
+Map slider = {
+  0:0,
+  1:0,
+  2:0,
+  3:0,
+  4:0,
+  5:0
+};
+Map cart ={};
