@@ -6,7 +6,7 @@ class BurgerItem extends StatelessWidget {
   final String imageUrl;
   final List<String> description;
   final int price;
-  Function selectItem;
+  final Function selectItem;
 
   BurgerItem(
       { this.id,

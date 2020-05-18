@@ -5,7 +5,7 @@ class ComponentItem extends StatefulWidget {
   final String title;
   final String imageUrl;
   final List<String> list;
-  Function selectItem;
+  final Function selectItem;
 
   ComponentItem(
       {this.id,

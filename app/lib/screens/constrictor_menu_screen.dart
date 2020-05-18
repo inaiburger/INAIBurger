@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'contacts_screen.dart';
 import 'crazy_construcktor_screen.dart';
 
@@ -36,7 +35,7 @@ class ConstructorMenu extends StatelessWidget {
                 height: MediaQuery.of(context).size.width * 0.45,
                 child: FlatButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>ContactScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>ClassicCustomButger()));
                     },
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,

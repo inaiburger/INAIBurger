@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:inaiburger/models/component_images.dart';
+import 'package:inaiburger/models/crazy_burger.dart';
 
 const _horizontalPadding = 32.0;
 const _carouselItemMargin = 8.0;
 
 class AnimSliderWidget extends StatefulWidget {
   final int component;
-  AnimSliderWidget(this.component);
+  final Map map;
+  AnimSliderWidget(this.component,this.map);
   @override
   _AnimSliderWidgetState createState() => _AnimSliderWidgetState();
 }
@@ -14,14 +16,7 @@ class AnimSliderWidget extends StatefulWidget {
 class _AnimSliderWidgetState extends State<AnimSliderWidget> {
   PageController pageController;
   int currentPage = 0;
-  List<List> lists = [
-    componentImages,
-    componentImagesMeat,
-    componentImagesLettuce,
-    componentImagesGar,
-    componentImagesBunbot
-  ];
-
+  
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -37,15 +32,15 @@ class _AnimSliderWidgetState extends State<AnimSliderWidget> {
         child: Column(children: <Widget>[
       Container(
         width: MediaQuery.of(context).size.width,
-        height: 100,
+        height: MediaQuery.of(context).size.height*0.2,
         child: PageView(
           onPageChanged: (index) {
             currentPage = index;
-            slider[widget.component] = index;
+            widget.map[widget.component] = index;
           },
           controller: pageController,
           children: <Widget>[
-            for (int i = 0; i < lists[widget.component].length; i++)
+            for (int i = 0; i < CDATA[widget.component].length; i++)
               buildItem(i)
           ],
         ),
@@ -72,7 +67,7 @@ class _AnimSliderWidgetState extends State<AnimSliderWidget> {
             child: Container(
               width: MediaQuery.of(context).size.width * 0.7,
               child: Image.asset(
-                lists[widget.component][index],
+                CDATA[widget.component][index].imageUrl,
                 fit: BoxFit.contain,
               ),
             ),

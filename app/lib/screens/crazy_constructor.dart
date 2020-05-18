@@ -3,15 +3,73 @@ import 'package:inaiburger/models/crazy_burger.dart';
 import 'package:inaiburger/screens/slider.dart';
 import '../models/component_images.dart';
 
-class ClassicCustomButger extends StatefulWidget {
+class CrazyCustomBurger extends StatefulWidget {
   @override
-  _ClassicCustomButgerState createState() => _ClassicCustomButgerState();
+  _CrazyCustomBurgerState createState() => _CrazyCustomBurgerState();
 }
 
-class _ClassicCustomButgerState extends State<ClassicCustomButger> {
+class _CrazyCustomBurgerState extends State<CrazyCustomBurger> {
   int classicBurgerCount = 0;
-
+  List<AnimSliderWidget> widgets = [];
   int price = 0;
+  Future _asyncSimpleDialog(BuildContext context) async {
+    return await showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (BuildContext context) {
+          return SimpleDialog(
+            title: const Text('Select Ingredient '),
+            children: <Widget>[
+              Container(
+                  height: 100,
+                  width: 200,
+                  child: Ink.image(
+                    image: AssetImage(componentImagesMeat[0]),
+                    fit: BoxFit.contain,
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          widgets.add(AnimSliderWidget(4,crslider));
+                        });
+                        Navigator.pop(context);
+                      },
+                    ),
+                  )),
+              Container(
+                  height: 100,
+                  width: 200,
+                  child: Ink.image(
+                    image: AssetImage(componentImagesLettuce[0]),
+                    fit: BoxFit.contain,
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          widgets.add(AnimSliderWidget(2,crslider));
+                        });
+                        Navigator.pop(context);
+                      },
+                    ),
+                  )),
+              Container(
+                  height: 100,
+                  width: 200,
+                  child: Ink.image(
+                    image: AssetImage(componentImagesGar[2]),
+                    fit: BoxFit.contain,
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          widgets.add(AnimSliderWidget(3,crslider));
+                        });
+                        Navigator.pop(context);
+                      },
+                    ),
+                  )),
+            ],
+          );
+        });
+  }
+
   showTransactionConfirm() {
     showGeneralDialog(
         context: context,
@@ -68,7 +126,6 @@ class _ClassicCustomButgerState extends State<ClassicCustomButger> {
                                   price,
                                   1
                                 ];
-                                allBurgers[countCustomBurgers]=slider;
                                 countCustomBurgers++;
                                 print(countCustomBurgers);
                                 Navigator.pop(context);
@@ -101,12 +158,36 @@ class _ClassicCustomButgerState extends State<ClassicCustomButger> {
         ),
         backgroundColor: Colors.transparent,
         body: ListView(children: <Widget>[
-          AnimSliderWidget(0,slider),
-          AnimSliderWidget(4,slider),
-          AnimSliderWidget(3,slider),
-          AnimSliderWidget(4,slider),
-          AnimSliderWidget(2,slider),
-          AnimSliderWidget(1,slider),
+          AnimSliderWidget(0,crslider),
+          ...widgets,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IconButton(
+                icon: Icon(
+                  Icons.remove_circle,
+                  size: 35,
+                  color: Color.fromRGBO(163, 8, 11, 1),
+                ),
+                onPressed: () {
+                  print(crslider);
+                  setState(() {
+                  });
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.add_circle,
+                  size: 35,
+                  color: Color.fromRGBO(163, 8, 11, 1),
+                ),
+                onPressed: () {
+                  _asyncSimpleDialog(context);
+                },
+              ),
+            ],
+          ),
+          AnimSliderWidget(1,crslider),
           Center(
             child: FlatButton(
               child: Container(
@@ -128,9 +209,6 @@ class _ClassicCustomButgerState extends State<ClassicCustomButger> {
               },
             ),
           ),
-          SizedBox(
-            height: 15,
-          )
         ]),
       ),
     ]);

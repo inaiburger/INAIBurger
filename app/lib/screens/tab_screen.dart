@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:inaiburger/screens/contacts.dart';
 import 'package:inaiburger/screens/contacts_screen.dart';
 import 'package:inaiburger/screens/custom_constructor.dart';
 import 'constrictor_menu_screen.dart';
@@ -124,21 +125,21 @@ class AppDrawer extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (BuildContext context) => ContactScreen()),
+                        builder: (BuildContext context) => Contacts()),
                   );
                 },
                 text: 'Contacts',
               ),
-              _createDrawerItem(
-                  icon: Icons.settings,
-                  text: 'Settings',
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                CustomConstructor()));
-                  }),
+              // _createDrawerItem(
+              //     icon: Icons.settings,
+              //     text: 'Settings',
+              //     onTap: () {
+              //       Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //               builder: (BuildContext context) =>
+              //                   CustomConstructor()));
+              //     }),
               Divider(
                 color: Colors.black,
               ),

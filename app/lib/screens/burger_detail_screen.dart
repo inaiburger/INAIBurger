@@ -10,9 +10,10 @@ class BurgerDetail extends StatelessWidget {
   BurgerDetail();
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context).settings.arguments;
+    final args = ModalRoute.of(context).settings.arguments as List;
+
     final String description =
-        availableBurgers[args].description.reduce((value, element) {
+        availableBurgers[args[0]].description.reduce((value, element) {
       return value + element;
     });
     return Scaffold(
@@ -39,12 +40,12 @@ class BurgerDetail extends StatelessWidget {
       body: ListView(children: [
         SizedBox(height: 15.0),
         Hero(
-            tag: dummyburgers[args][1],
-            child: Image.asset(availableBurgers[args].imageUrl,
+            tag: dummyburgers[args[0]][1],
+            child: Image.asset(availableBurgers[args[0]].imageUrl,
                 height: 150.0, width: 100.0, fit: BoxFit.contain)),
         SizedBox(height: 20.0),
         Center(
-          child: Text('${availableBurgers[args].price}' + ' som',
+          child: Text('${availableBurgers[args[0]].price}' + ' som',
               style: TextStyle(
                   fontFamily: 'Varela',
                   fontSize: 22.0,
@@ -53,7 +54,7 @@ class BurgerDetail extends StatelessWidget {
         ),
         SizedBox(height: 10.0),
         Center(
-          child: Text(availableBurgers[args].title,
+          child: Text(availableBurgers[args[0]].title,
               style: TextStyle(
                   color: Color(0xFF575E67),
                   fontFamily: 'Varela',
@@ -76,9 +77,12 @@ class BurgerDetail extends StatelessWidget {
             child: FloatingActionButton.extended(
                 backgroundColor: Color(0xFFF17532),
                 onPressed: () {
-                  card.contains(dummyburgers[args][0])
+                  cart[dummyburgers[args[0]][0]] = args[1];
+                  card.contains(dummyburgers[args[0]][0])
                       ? print('Already exists')
-                      : card.add(dummyburgers[args][0]);
+                      : card.add(dummyburgers[args[0]][0]);
+                  countCustomBurgers++;
+
                   Navigator.of(context).pop();
                 },
                 label: Container(

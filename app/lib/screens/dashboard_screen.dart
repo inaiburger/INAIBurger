@@ -3,7 +3,6 @@ import 'package:inaiburger/dummy_data.dart';
 import 'package:inaiburger/models/burger.dart';
 import 'package:inaiburger/widgets/burger_item.dart';
 
-
 class DashboardScreen extends StatelessWidget {
   final List<Burger> availableBurgers = DUMMY_BURGERS;
   @override
@@ -20,7 +19,10 @@ class DashboardScreen extends StatelessWidget {
                   imageUrl: availableBurgers[index].imageUrl,
                   title: availableBurgers[index].title,
                   selectItem: () {
-                    Navigator.pushNamed(context, '/detail', arguments: index);
+                    Navigator.pushNamed(context, '/detail', arguments: [
+                      index,
+                      availableBurgers[index].price
+                    ]);
                   },
                 );
               }),

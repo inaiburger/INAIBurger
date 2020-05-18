@@ -1,4 +1,3 @@
-import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:flutter/material.dart';
 import '../models/component_images.dart';
 
@@ -12,7 +11,6 @@ List<List> imagelists = [
   componentImagesLettuce,
   componentImagesGar
 ];
-
 
 class _CartScreenState extends State<CartScreen> {
   int total = 0;
@@ -31,10 +29,8 @@ class _CartScreenState extends State<CartScreen> {
             FlatButton(
                 onPressed: () {
                   setState(() {
-                    card.remove('${card[index]}');
-                    addToCart.clear();
-                    columnSuper.clear();
-                    print(addToCart);
+                  card.remove(index);
+                  cart.remove(index);
                   });
                   return Navigator.pop(context);
                 },
@@ -117,7 +113,13 @@ class _CartScreenState extends State<CartScreen> {
       return Column(children: <Widget>[
         FlatButton(
           child: Text('Debug Print'),
-          onPressed: () => print(card),
+          onPressed: () {
+            print("card: $card");
+            print("cart: $cart");
+            // print("burgerIdimages; $burgerIdimages");
+            print("countCustomBurgers: $countCustomBurgers");
+            print("AllBurgers : $allBurgers");
+          },
         ),
         Expanded(
           child: ListView.builder(
@@ -133,7 +135,6 @@ class _CartScreenState extends State<CartScreen> {
                   sum += e;
                 }
                 total = sum;
-
                 return Card(
                   elevation: 8,
                   margin: EdgeInsets.all(8),
@@ -141,14 +142,11 @@ class _CartScreenState extends State<CartScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        if ('${card[index]}' == 'CrazyBurger')
+                        if (card[index] == int)
                           Container(
+                              height: 80,
                               width: 80,
-                              child: ColumnSuper(
-                                innerDistance: -17,
-                                invert: true,
-                                children: columnSuper,
-                              ))
+                              child: Text("Custom ${cart[index]}"))
                         else
                           Container(
                             height: 80,
@@ -162,26 +160,31 @@ class _CartScreenState extends State<CartScreen> {
                           child: Column(
                             children: <Widget>[
                               Container(
-                                padding: EdgeInsets.all(8),
-                                child: Text('${card[index]}'),
-                              ),
+                                  padding: EdgeInsets.all(8),
+                                  child: burgerIdimages[card[index]][0] ==
+                                          'assets/burger.png'
+                                      ? Text("Custom Burger $index")
+                                      : Text("${card[index]}")),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: <Widget>[
-                                  Text(
-                                    '${burgerIdimages[card[index]][1]} som',
-                                    style: TextStyle(
-                                        fontSize: 20, color: Colors.black45),
-                                  ),
+                                  card[index] == int
+                                      ? Text(cart[index])
+                                      : Text(
+                                          '${burgerIdimages[card[index]][1]} som',
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              color: Colors.black45),
+                                        ),
                                   IconButton(
                                     icon: Icon(
                                       Icons.delete,
                                       color: Color.fromRGBO(163, 8, 11, 1),
                                     ),
                                     onPressed: () {
-                                      _showAlert(context,
-                                          'Do you want to delete?', index);
+                                      // _showAlert(context,
+                                      //     'Do you want to delete?', index);
                                     },
                                   ),
                                   Container(
@@ -190,8 +193,9 @@ class _CartScreenState extends State<CartScreen> {
                                       children: <Widget>[
                                         Container(
                                           decoration: BoxDecoration(
-                                            color: Colors.black38,borderRadius: BorderRadius.all(Radius.circular(6))
-                                          ),
+                                              color: Colors.black38,
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(6))),
                                           width: 30,
                                           height: 30,
                                           child: InkWell(
@@ -220,8 +224,9 @@ class _CartScreenState extends State<CartScreen> {
                                                     '${burgerIdimages[card[index]][2]}'))),
                                         Container(
                                           decoration: BoxDecoration(
-                                            color: Colors.black38,borderRadius: BorderRadius.all(Radius.circular(6))
-                                          ),
+                                              color: Colors.black38,
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(6))),
                                           width: 30,
                                           height: 30,
                                           child: InkWell(
@@ -272,6 +277,33 @@ class _CartScreenState extends State<CartScreen> {
                   onPressed: () {
                     setState(() {
                       card.clear();
+                      cart.clear();
+                      burgerIdimages = {
+                        'Toasty Buns Burgers': [
+                          'assets/images/burger1.png',
+                          250,
+                          1
+                        ],
+                        'Backyard Burgers': [
+                          'assets/images/burger2.png',
+                          300,
+                          1
+                        ],
+                        'Beefcakes Burgers': [
+                          'assets/images/burger3.png',
+                          180,
+                          1
+                        ],
+                        'Buzz Burgers': ['assets/images/burger4.png', 150, 1],
+                        'Buffalo Burgers': [
+                          'assets/images/burger6.png',
+                          666,
+                          1
+                        ],
+                        'Knuckle Burger': ['assets/images/burger7.png', 500, 1],
+                        'CrazyBurger': ['assets/images/burger9.jpg', 1111, 1]
+                      };
+                      countCustomBurgers = 0;
                     });
                   },
                 ),

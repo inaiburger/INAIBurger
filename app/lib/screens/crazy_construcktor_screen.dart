@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inaiburger/models/crazy_burger.dart';
 import 'package:inaiburger/screens/cart_screen.dart';
 import '../models/component_images.dart';
 
@@ -13,6 +14,7 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
   int img1 = 0;
   int img6 = 0;
   int number = -1;
+  int price = 0;
   Map<String, int> customBurger = {
     'img1': 1,
     'img6': 1,
@@ -35,20 +37,8 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
     componentImagesLettuce,
     componentImagesGar
   ];
-  _customBurgerList() {
-    if (addToCart.isNotEmpty) {
-      addToCart.forEach((f, v) {
-        if (f == 10) {
-          columnSuper.add(Image.asset('${componentImages[v]}'));
-        } else {
-          columnSuper.add(Image.asset('${imagelists[integers[f]][v]}'));
-        }
-      });
-      columnSuper.add(Image.asset('${componentImagesBunbot[addToCart[10]]}'));
-    } else {
-      print('cart is empty');
-    }
-  }
+  List componenty = [componentsMeat, componentsTom, componentsChe];
+
   @override
   Widget build(BuildContext context) {
     customBurger['img1'] = img1;
@@ -75,7 +65,8 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
                     height: 20,
                   ),
                   InkWell(
-                    child: Image.asset(componentImages[customBurger['img1']]),
+                    child: Image.asset(componentImages[customBurger['img1']],
+                        fit: BoxFit.contain),
                     onTap: () {
                       showComponents(0, componentImages.length);
                     },
@@ -86,16 +77,18 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
                       shrinkWrap: true,
                       itemCount: integers.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return
-                         InkWell(
-                          child: Image.asset(
-                              lists[integers[index]][mapId[index]]),
+                        return InkWell(
+                          child:
+                              Image.asset(lists[integers[index]][mapId[index]]),
                           onTap: () {
                             showAddedComponents([
-                                  integers[index],
-                                  integers2[index],
-                                  lists[integers[index]].length
-                                ]);
+                              integers[index],
+                              integers2[index],
+                              lists[integers[index]].length
+                            ]);
+                            print(integers[index]);
+                            print(integers2[index]);
+                            print(lists[integers[index]].length);
                           },
                         );
                       },
@@ -152,7 +145,9 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
                   ),
                   InkWell(
                     child: Image.asset(
-                        componentImagesBunbot[customBurger['img6']]),
+                      componentImagesBunbot[customBurger['img6']],
+                      fit: BoxFit.contain,
+                    ),
                     onTap: () {
                       showComponents(5, componentImagesBunbot.length);
                     },
@@ -163,21 +158,18 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () {
-                      
                       addToCart[10] = img1;
                       integers2.forEach((f) {
                         setState(() {
                           addToCart[f] = mapId[f];
                         });
                       });
-                      card.add('CrazyBurger');
+
+                      // card.add('CrazyBurger');
                       print(addToCart);
                       print(card);
-                      _customBurgerList();
-                      integers.clear();
-                      integers2.clear();
-                      Navigator.pop(context);
-                      
+                      print("price: $price");
+                      showTransactionConfirm();
                     },
                     color: Color.fromRGBO(163, 8, 11, 1),
                   ),
@@ -191,14 +183,99 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
     ]);
   }
 
+  showTransactionConfirm() {
+    integers2.forEach((p) {
+      price = price + componenty[integers[p]][integers2[p]].price;
+    });
+    price += (CDATA[0][img1].price * 2);
+    print(price);
+
+    showGeneralDialog(
+        context: context,
+        barrierDismissible: true,
+        barrierLabel:
+            MaterialLocalizations.of(context).modalBarrierDismissLabel,
+        barrierColor: Colors.black45,
+        transitionDuration: const Duration(milliseconds: 200),
+        pageBuilder: (BuildContext buildContext, Animation animation,
+            Animation secondaryAnimation) {
+          return Center(
+            child: Material(
+              color: Colors.transparent,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                height: 200,
+                width: 200,
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 40,
+                      ),
+                      Text(
+                        'Total:   $price som',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: <Widget>[
+                            FlatButton(
+                              color: Colors.red[300],
+                              child: Text(
+                                'Cancel',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              onPressed: () {
+                                price = 0;
+                                Navigator.pop(context);
+                              },
+                            ),
+                            FlatButton(
+                              color: Colors.red[300],
+                              child: Text('Accept',
+                                  style: TextStyle(color: Colors.white)),
+                              onPressed: () {
+                                cart[ints[countCustomBurgers]] = price;
+                                card.add(ints[countCustomBurgers]);
+                                burgerIdimages[ints[countCustomBurgers]] = [
+                                  'assets/burger.png',
+                                  price,
+                                  1
+                                ];
+                                integers2.forEach((f){
+                                  
+                                });
+                                allBurgers[countCustomBurgers] = addToCart;
+                                countCustomBurgers++;
+                                print(countCustomBurgers);
+                                Navigator.pop(context);
+                                Navigator.pop(context);
+
+                                integers.clear();
+                                integers2.clear();
+                              },
+                            ),
+                          ]),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        });
+  }
+
   Future showAlert(BuildContext context) async {
     return showDialog(
         context: context,
         child: AlertDialog(
-          title: Text("Влезет????"),
+          title: Text("Limit"),
           actions: <Widget>[
             FlatButton(
-              child: Text('Нет, прошу прощения'),
+              child: Text('Ok'),
               onPressed: () {
                 return Navigator.pop(context);
               },
@@ -207,7 +284,7 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
                 onPressed: () {
                   return Navigator.pop(context);
                 },
-                child: Text('Сори'))
+                child: Text('ok'))
           ],
         ));
   }
@@ -224,7 +301,7 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
                   height: 100,
                   width: 200,
                   child: Ink.image(
-                    image: AssetImage(componentImagesMeat[0]),
+                    image: AssetImage(CDATA[4][0].imageUrl),
                     fit: BoxFit.contain,
                     child: InkWell(
                       onTap: () {
@@ -326,7 +403,7 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
                                     const EdgeInsets.symmetric(horizontal: 8),
                                 width: 200,
                               ),
-                              Text("Name of \$ingred"),
+                              Text(componenty[intList[0]][index].title),
                             ]),
                       );
                     },
@@ -408,7 +485,7 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
                                       const EdgeInsets.symmetric(horizontal: 8),
                                   width: 200,
                                 ),
-                                Text("Name of \$ingred"),
+                                Text(CDATA[0][index].title),
                               ]),
                         );
                       },

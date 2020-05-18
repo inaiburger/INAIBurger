@@ -98,7 +98,7 @@ List dummynews = [
 
 List card = [];
 
-Map<String, List> burgerIdimages = {
+Map burgerIdimages = {
   'Toasty Buns Burgers': ['assets/images/burger1.png', 250, 1],
   'Backyard Burgers': ['assets/images/burger2.png', 300, 1],
   'Beefcakes Burgers': ['assets/images/burger3.png', 180, 1],
@@ -120,4 +120,12 @@ Map slider = {
   4:0,
   5:0
 };
+Map crslider = {
+  0:0,
+  1:0,
+};
 Map cart ={};
+int countCustomBurgers = 0;
+List<int> ints = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+List<int> integers = [];
+Map<int,Map> allBurgers = {};
