@@ -17,6 +17,9 @@
 Бекенд:
 https://github.com/inaiburger/BurgerBackend
 
+логин:admin
+пароль:inaiburger
+
 ## Ссылка на дизайн:
 https://www.figma.com/file/252t9U42pCCSHQAeDq73mg/INAIBurger?node-id=0%3A1
 
