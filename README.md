@@ -13,10 +13,6 @@
 * Исаев Байэл - DevOps
 * Маратова Жаркынай - Designer
 
-## Ссылки на другие репозитории:
-Бекенд:
-https://github.com/inaiburger/BurgerBackend
-
 логин:admin
 пароль:inaiburger
 
@@ -29,11 +25,11 @@ https://inaiburger.github.io/
 ## Ссылка на репозиторий сайта:
 https://github.com/inaiburger/inaiburger.github.io
 
-## Ссылка на административную панель:
-https://sleepy-temple-85699.herokuapp.com/admin/
-
 ## Ссылка на репозиторий сервера:
 https://github.com/inaiburger/BurgerBackend
+
+## Ссылка на административную панель:
+https://sleepy-temple-85699.herokuapp.com/admin/
 
 ## Ccылка на Бизнес процес диаграмму:
 https://github.com/inaiburger/INAIBurger/blob/master/InaiBurger.pdf
