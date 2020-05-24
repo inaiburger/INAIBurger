@@ -16,6 +16,9 @@
 логин:admin
 пароль:inaiburger
 
+## Диаграммы
+https://github.com/inaiburger/INAIBurger/tree/master/Diagrams
+
 ## Ссылка на дизайн:
 https://www.figma.com/file/252t9U42pCCSHQAeDq73mg/INAIBurger?node-id=0%3A1
 
