@@ -14,16 +14,6 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // floatingActionButton: FloatingActionButton(
-      //     backgroundColor: Colors.redAccent,
-      //     child: Icon(Icons.layers),
-      //     onPressed: () {
-      //       setState(() {
-      //         defaultMapType = defaultMapType == MapType.normal
-      //             ? MapType.hybrid
-      //             : MapType.normal;
-      //       });
-      //     }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: PlatformMap(
         mapType: defaultMapType,
@@ -34,25 +24,12 @@ class _MapScreenState extends State<MapScreen> {
         markers: Set<Marker>.of([
           Marker(
               markerId: MarkerId('marker_1'),
-              position: LatLng(42.833834, 74.621427),
+              position: LatLng(42.879136, 74.617872),
               consumeTapEvents: true,
               infoWindow: InfoWindow(
-                  title: 'InaiBurger CosmoPark', snippet: '2 stock'),
+                  title: "БЦ Victory", snippet: '2 stock'),
               onTap: () {}),
-          Marker(
-              markerId: MarkerId('marker_2'),
-              position: LatLng(42.857489, 74.609731),
-              consumeTapEvents: true,
-              infoWindow:
-                  InfoWindow(title: 'InaiBurger Vefa', snippet: '3 stock'),
-              onTap: () {}),
-          Marker(
-              markerId: MarkerId('marker_3'),
-              position: LatLng(42.875990, 74.614007),
-              consumeTapEvents: true,
-              infoWindow:
-                  InfoWindow(title: 'InaiBurger Gum', snippet: '4 stock'),
-              onTap: () {}),
+          
         ]),
         myLocationEnabled: true,
         myLocationButtonEnabled: true,

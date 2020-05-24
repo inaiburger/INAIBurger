@@ -4,8 +4,6 @@ import 'tab_screen.dart';
 import 'package:http/http.dart' as http;
 
 const users = const {
-  'dribbble@gmail.com': '12345',
-  'hunter@gmail.com': 'hunter',
   'inaiburger@gmail.com': '12345'
 };
 
@@ -14,8 +12,19 @@ class LoginScreen extends StatelessWidget {
     bottom: Radius.circular(10.0),
     top: Radius.circular(20.0),
   );
-  Duration get loginTime => Duration(milliseconds: 2250);
-
+  Duration get loginTime => Duration(milliseconds: 2300);
+Future<String>_signUp(LoginData data){
+  print('Name: ${data.name}, Password: ${data.password}');
+    return Future.delayed(loginTime).then((_) {
+      // if (!users.containsKey(data.name)) {
+      //   return 'Username not exists';
+      // }
+      // if (users[data.name] != data.password) {
+      //   return 'Password does not match';
+      // }
+      return null;
+    });
+}
   Future<String> _authUser(LoginData data) {
     print('Name: ${data.name}, Password: ${data.password}');
     return Future.delayed(loginTime).then((_) {
@@ -61,10 +70,10 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: FlutterLogin(
         title: 'InaiBurger',
-        // logo: 'assets/images/burger2.png',
+        // logo: 'assets/images/logo.jpg',
         onLogin: _authUser,
-        onSignup: _authUser,
-        showDebugButtons: true,
+        onSignup: _signUp,
+        // showDebugButtons: true,
         theme: LoginTheme(
           primaryColor: Color.fromRGBO(163, 8, 11, 1),
         ),

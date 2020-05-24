@@ -96,7 +96,7 @@ class _ClassicCustomButgerState extends State<ClassicCustomButger> {
       ),
       Scaffold(
         appBar: AppBar(
-          title: Text('Contacts'),
+          title: Text('Классический конструктор'),
           backgroundColor: Color.fromRGBO(163, 8, 11, 1),
         ),
         backgroundColor: Colors.transparent,
@@ -113,7 +113,7 @@ class _ClassicCustomButgerState extends State<ClassicCustomButger> {
                   width: MediaQuery.of(context).size.width * 0.6,
                   child: Center(
                       child: Text(
-                    "Add to Cart",
+                    "Добавить в Корзину",
                     style: TextStyle(color: Colors.white),
                   ))),
               color: Color.fromRGBO(163, 8, 11, 1),

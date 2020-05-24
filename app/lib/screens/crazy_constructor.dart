@@ -194,7 +194,7 @@ class _CrazyCustomBurgerState extends State<CrazyCustomBurger> {
                   width: MediaQuery.of(context).size.width * 0.6,
                   child: Center(
                       child: Text(
-                    "Add to Cart",
+                    "Добавить в Корзину",
                     style: TextStyle(color: Colors.white),
                   ))),
               color: Color.fromRGBO(163, 8, 11, 1),

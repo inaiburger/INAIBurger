@@ -8,6 +8,7 @@ import 'cart_screen.dart';
 import 'news_screen.dart';
 import 'map_screen.dart';
 import 'dashboard_screen.dart';
+import 'soon.dart';
 
 class TabsScreen extends StatefulWidget {
   @override
@@ -21,10 +22,10 @@ class _TabsScreenState extends State<TabsScreen> {
   void initState() {
     _pages = [
       {'page': DashboardScreen(), 'title': 'InaiBurger'},
-      {'page': ConstructorMenu(), 'title': 'Burger Constructor'},
-      {'page': NewsScreen(), 'title': 'News'},
-      {'page': MapScreen(), 'title': 'Map'},
-      {'page': CartScreen(), 'title': 'Cart'},
+      {'page': ConstructorMenu(), 'title': 'Бургер Конструктор'},
+      {'page': NewsScreen(), 'title': 'Новости'},
+      {'page': MapScreen(), 'title': 'Карта'},
+      {'page': CartScreen(), 'title': 'Корзина'},
     ];
     super.initState();
   }
@@ -62,7 +63,7 @@ class _TabsScreenState extends State<TabsScreen> {
               size: 30,
             ),
             title: Text(
-              'Home',
+              'Главная',
               style: TextStyle(color: Colors.white),
             ),
           ),
@@ -72,8 +73,8 @@ class _TabsScreenState extends State<TabsScreen> {
               size: 30,
             ),
             title: Text(
-              'Constructor',
-              style: TextStyle(color: Colors.white),
+              'Конструктор',
+              style: TextStyle(color: Colors.white, fontSize: 12),
             ),
           ),
           BottomNavigationBarItem(
@@ -81,21 +82,21 @@ class _TabsScreenState extends State<TabsScreen> {
               Icons.calendar_today,
               size: 30,
             ),
-            title: Text('News', style: TextStyle(color: Colors.white)),
+            title: Text('Нововсти', style: TextStyle(color: Colors.white)),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.map,
               size: 30,
             ),
-            title: Text('Map', style: TextStyle(color: Colors.white)),
+            title: Text('Карта', style: TextStyle(color: Colors.white)),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.shopping_cart,
               size: 30,
             ),
-            title: Text('Cart', style: TextStyle(color: Colors.white)),
+            title: Text('Корзина', style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
@@ -116,8 +117,15 @@ class AppDrawer extends StatelessWidget {
             children: <Widget>[
               _createHeader(),
               _createDrawerItem(
+                onTap: (){
+                  Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                Soon()));
+                },
                 icon: Icons.account_circle,
-                text: 'Account',
+                text: 'Аккаунт',
               ),
               _createDrawerItem(
                 icon: Icons.contacts,
@@ -128,23 +136,29 @@ class AppDrawer extends StatelessWidget {
                         builder: (BuildContext context) => Contacts()),
                   );
                 },
-                text: 'Contacts',
+                text: 'Контакты',
               ),
-              // _createDrawerItem(
-              //     icon: Icons.settings,
-              //     text: 'Settings',
-              //     onTap: () {
-              //       Navigator.push(
-              //           context,
-              //           MaterialPageRoute(
-              //               builder: (BuildContext context) =>
-              //                   CustomConstructor()));
-              //     }),
+              _createDrawerItem(
+                  icon: Icons.settings,
+                  text: 'Настройки',
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => Soon()));
+                  }),
               Divider(
                 color: Colors.black,
               ),
               _createDrawerItem(
-                  icon: Icons.bug_report, text: 'Report an issue'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => Soon()));
+                  },
+                  icon: Icons.bug_report,
+                  text: 'Сообщить о проблеме'),
             ],
           ),
         ),

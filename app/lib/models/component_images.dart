@@ -103,9 +103,9 @@ Map burgerIdimages = {
   'Backyard Burgers': ['assets/images/burger2.png', 300, 1],
   'Beefcakes Burgers': ['assets/images/burger3.png', 180, 1],
   'Buzz Burgers': ['assets/images/burger4.png', 150, 1],
-  'Buffalo Burgers': ['assets/images/burger6.png', 666, 1],
+  'Buffalo Burgers': ['assets/images/burger6.png', 350, 1],
   'Knuckle Burger': ['assets/images/burger7.png', 500, 1],
-  'CrazyBurger': ['assets/images/burger9.jpg', 1111, 1]
+  'CrazyBurger': ['assets/images/burger9.jpg', 320, 1]
 };
 List<int> transaction = [];
 
@@ -113,12 +113,6 @@ Map addToCart = {};
 List<Widget> columnSuper = [];
 
 Map slider = {
-  0:0,
-  1:0,
-  2:0,
-  3:0,
-  4:0,
-  5:0
 };
 Map crslider = {
   0:0,

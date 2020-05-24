@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inaiburger/models/crazy_burger.dart';
 import '../models/component_images.dart';
 
 class ConstructorScreen extends StatefulWidget {
@@ -7,32 +8,34 @@ class ConstructorScreen extends StatefulWidget {
 }
 
 class _ConstructorScreenState extends State<ConstructorScreen> {
+  int price = 0;
   int img1 = 0;
   int img2 = 0;
   int img3 = 0;
   int img4 = 0;
   int img5 = 0;
   int img6 = 0;
-  Map<String, int> customBurger = {
-    'img1': 1,
-    'img2': 1,
-    'img3': 1,
-    'img4': 1,
-    'img5': 1,
-    'img6': 1,
-  };
+  Map<String, int> customBurger = {};
   double hgt = 80;
+  List data = [
+    componentsBuntop,
+    componentsTom,
+    componentsMeat,
+    componentsChe,
+    componentsMeat,
+    componentsBunbot,
+  ];
 
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context).settings.arguments;
     print(args);
-    customBurger['img1'] = img1;
-    customBurger['img2'] = img2;
-    customBurger['img3'] = img3;
-    customBurger['img4'] = img4;
-    customBurger['img5'] = img5;
-    customBurger['img6'] = img6;
+    slider['img1'] = img1;
+    slider['img2'] = img2;
+    slider['img3'] = img3;
+    slider['img4'] = img4;
+    slider['img5'] = img5;
+    slider['img6'] = img6;
     return Stack(children: <Widget>[
       Image.asset(
         'assets/images/background.png',
@@ -42,7 +45,7 @@ class _ConstructorScreenState extends State<ConstructorScreen> {
       ),
       Scaffold(
           appBar: AppBar(
-            title: Text("Make Burger on your own"),
+            title: Text("Сделай свой Бургер"),
             backgroundColor: Color.fromRGBO(163, 8, 11, 1),
           ),
           backgroundColor: Colors.transparent,
@@ -50,58 +53,74 @@ class _ConstructorScreenState extends State<ConstructorScreen> {
             physics: BouncingScrollPhysics(),
             child: Center(
               child: Container(
-                width: MediaQuery.of(context).size.width*0.7,
+                width: MediaQuery.of(context).size.width * 0.7,
                 child: Column(
                   children: [
-                    InkWell(
-                      onTap: (){
-                        showComponents(0);
-                      },
-                      child: Image.asset(componentImages[customBurger['img1']]),
-                    ),
-                    
-                    InkWell(
-                      onTap: (){
-                        showComponents(1);
-                      },
-                      child: Image.asset(componentImagesLettuce[customBurger['img2']]),
-                    ),
-                    InkWell(
-                      onTap: (){
-                        showComponents(2);
-                      },
-                      child: Image.asset(componentImagesMeat[customBurger['img3']]),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      child: InkWell(
+                        onTap: () {
+                          showComponents(0, componentImages.length);
+                        },
+                        child: Image.asset(
+                          componentImages[slider['img1']],
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                     InkWell(
-                      onTap: (){
-                        showComponents(3);
+                      onTap: () {
+                        showComponents(1, componentImagesLettuce.length);
                       },
-                      child: Image.asset(componentImagesGar[customBurger['img4']]),
+                      child:
+                          Image.asset(componentImagesLettuce[slider['img2']]),
                     ),
                     InkWell(
-                      onTap: (){
-                        showComponents(4);
+                      onTap: () {
+                        showComponents(2, componentImagesMeat.length);
                       },
-                      child: Image.asset(componentImagesMeat2[customBurger['img5']]),
+                      child: Image.asset(componentImagesMeat[slider['img3']]),
                     ),
                     InkWell(
-                      onTap: (){
-                        showComponents(5);
+                      onTap: () {
+                        showComponents(3, componentImagesGar.length);
                       },
-                      child: Image.asset(componentImagesBunbot[customBurger['img6']]),
+                      child: Image.asset(componentImagesGar[slider['img4']]),
                     ),
-                    SizedBox(height: 30,),
+                    InkWell(
+                      onTap: () {
+                        showComponents(4, componentImagesMeat2.length);
+                      },
+                      child: Image.asset(componentImagesMeat2[slider['img5']]),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      child: InkWell(
+                        onTap: () {
+                          showComponents(5, componentImagesBunbot.length);
+                        },
+                        child: Image.asset(
+                          componentImagesBunbot[slider['img6']],
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
                     Divider(),
                     FlatButton(
                       child: Text(
-                        'Add to card',
+                        'Добавить в Корзину',
                         style: TextStyle(color: Colors.white),
                       ),
                       color: Color.fromRGBO(163, 8, 11, 1),
                       onPressed: () {
-                        print(customBurger);
+                        print(slider);
+                        showTransactionConfirm();
                       },
                     ),
+                    SizedBox(height: 30,)
                   ],
                 ),
               ),
@@ -110,7 +129,90 @@ class _ConstructorScreenState extends State<ConstructorScreen> {
     ]);
   }
 
-  showComponents(inkIndex) {
+  showTransactionConfirm() {
+    print(data[slider["img1"]][slider["img1"]].price);
+    List prices = [];
+    prices.add(data[0][slider["img1"]].price);
+    prices.add(data[1][slider["img2"]].price);
+    prices.add(data[2][slider["img3"]].price);
+    prices.add(data[3][slider["img4"]].price);
+    prices.add(data[4][slider["img5"]].price);
+    prices.add(data[5][slider["img6"]].price);
+    int sum = prices.reduce((a, b) => a + b);
+
+    showGeneralDialog(
+        context: context,
+        barrierDismissible: true,
+        barrierLabel:
+            MaterialLocalizations.of(context).modalBarrierDismissLabel,
+        barrierColor: Colors.black45,
+        transitionDuration: const Duration(milliseconds: 200),
+        pageBuilder: (BuildContext buildContext, Animation animation,
+            Animation secondaryAnimation) {
+          return Center(
+            child: Material(
+              color: Colors.transparent,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                height: 200,
+                width: 200,
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 40,
+                      ),
+                      Text(
+                        'Всего:   $sum сом',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: <Widget>[
+                            FlatButton(
+                              color: Colors.red[300],
+                              child: Text(
+                                'Отмена',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              onPressed: () {
+                                prices.clear();
+                                Navigator.pop(context);
+                              },
+                            ),
+                            FlatButton(
+                              color: Colors.red[300],
+                              child: Text('Принять',
+                                  style: TextStyle(color: Colors.white)),
+                              onPressed: () {
+                                cart[ints[countCustomBurgers]] = sum;
+                                card.add(ints[countCustomBurgers]);
+                                burgerIdimages[ints[countCustomBurgers]] = [
+                                  'assets/burger.png',
+                                  sum,
+                                  1
+                                ];
+                                // allBurgers[countCustomBurgers] = addToCart;
+                                countCustomBurgers++;
+                                print(countCustomBurgers);
+                                Navigator.pop(context);
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ]),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        });
+  }
+
+  showComponents(int inkIndex, int itemC) {
     showGeneralDialog(
         context: context,
         barrierDismissible: true,
@@ -202,11 +304,11 @@ class _ConstructorScreenState extends State<ConstructorScreen> {
                                       const EdgeInsets.symmetric(horizontal: 8),
                                   width: 200,
                                 ),
-                                Text("Name of \$ingred"),
+                                Text(data[inkIndex][index].title),
                               ]),
                         );
                       },
-                      itemCount: 5)),
+                      itemCount: itemC)),
             ),
           );
         });

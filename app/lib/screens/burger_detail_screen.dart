@@ -45,7 +45,7 @@ class BurgerDetail extends StatelessWidget {
                 height: 150.0, width: 100.0, fit: BoxFit.contain)),
         SizedBox(height: 20.0),
         Center(
-          child: Text('${availableBurgers[args[0]].price}' + ' som',
+          child: Text('${dummyburgers[args[0]][2]}' + ' som',
               style: TextStyle(
                   fontFamily: 'Varela',
                   fontSize: 22.0,

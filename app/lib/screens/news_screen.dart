@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:inaiburger/models/component_images.dart';
 
+import 'news.dart';
+
 class NewsScreen extends StatelessWidget {
  
   @override
@@ -14,8 +16,11 @@ class NewsScreen extends StatelessWidget {
               return InkWell(
                 onTap: () {
                   print('Card:  $card');
-                  // Navigator.of(context)
-                  //         .pushNamed('/detail_news', arguments: index);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => News()),
+                  );
                 },
                 child: Card(
                   child: Column(children: <Widget>[

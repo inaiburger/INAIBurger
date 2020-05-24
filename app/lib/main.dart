@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     ]);
     return MaterialApp(
       title: 'inaiBurger',
-      home: TabsScreen(),
+      home: LoginScreen(),
       theme: ThemeData(primaryColor: Colors.brown[500]),
       routes: {
         '/constructor': (context) => ConstructorScreen(),

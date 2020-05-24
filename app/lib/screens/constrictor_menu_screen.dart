@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
-import 'contacts_screen.dart';
+import 'package:inaiburger/models/component_images.dart';
+import 'constructor_screen.dart';
 import 'crazy_construcktor_screen.dart';
 
-class ConstructorMenu extends StatelessWidget {
+class ConstructorMenu extends StatefulWidget {
+  @override
+  _ConstructorMenuState createState() => _ConstructorMenuState();
+}
+
+class _ConstructorMenuState extends State<ConstructorMenu> {
+  int price = 0;
   @override
   Widget build(BuildContext context) {
     return Stack(children: <Widget>[
@@ -35,7 +42,7 @@ class ConstructorMenu extends StatelessWidget {
                 height: MediaQuery.of(context).size.width * 0.45,
                 child: FlatButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>ClassicCustomButger()));
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>ConstructorScreen()));
                     },
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -45,7 +52,7 @@ class ConstructorMenu extends StatelessWidget {
                               width: MediaQuery.of(context).size.width,
                               child: Image.asset('assets/burger.png')),
                           Text(
-                            'Classic',
+                            'Классический',
                             style: TextStyle(color: Colors.white),
                           )
                         ])),
@@ -73,7 +80,7 @@ class ConstructorMenu extends StatelessWidget {
                               child: Image.asset(
                                   'assets/images/crazyBurger3.png')),
                           Text(
-                            'Custom',
+                            'Пользовательский',
                             style: TextStyle(color: Colors.white),
                           )
                         ])),
@@ -84,4 +91,6 @@ class ConstructorMenu extends StatelessWidget {
       ),
     ]);
   }
+
+  
 }

@@ -8,13 +8,13 @@ class CrazyConstructorScreen extends StatefulWidget {
   _CrazyConstructorScreenState createState() => _CrazyConstructorScreenState();
 }
 
-List<int> integers = [];
-
 class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
   int img1 = 0;
   int img6 = 0;
   int number = -1;
-  int price = 0;
+
+  List<int> integers = [];
+  List<int> prices = [];
   Map<String, int> customBurger = {
     'img1': 1,
     'img6': 1,
@@ -52,7 +52,7 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
       ),
       Scaffold(
           appBar: AppBar(
-            title: Text("Make Crazy Burger"),
+            title: Text("Сделай свой Бургер"),
             backgroundColor: Color.fromRGBO(163, 8, 11, 1),
           ),
           backgroundColor: Colors.transparent,
@@ -131,16 +131,16 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
                               : _asyncSimpleDialog(context);
                         },
                       ),
-                      FlatButton(
-                        child: Text("Debug"),
-                        onPressed: () {
-                          print('integers: $integers');
-                          print('integers2: $integers2');
-                          print('map: $mapId');
-                          print('number: $number');
-                          print('cart: $addToCart');
-                        },
-                      )
+                      // FlatButton(
+                      //   child: Text("Debug"),
+                      //   onPressed: () {
+                      //     print('integers: $integers');
+                      //     print('integers2: $integers2');
+                      //     print('map: $mapId');
+                      //     print('number: $number');
+                      //     print('cart: $addToCart');
+                      //   },
+                      // )
                     ],
                   ),
                   InkWell(
@@ -158,18 +158,21 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () {
-                      addToCart[10] = img1;
-                      integers2.forEach((f) {
-                        setState(() {
-                          addToCart[f] = mapId[f];
-                        });
-                      });
+                      // addToCart[10] = img1;
+                      // integers2.forEach((f) {
+                      //   setState(() {
+                      //     addToCart[f] = mapId[f];
+                      //   });
+                      // });
 
                       // card.add('CrazyBurger');
-                      print(addToCart);
+                      // print(addToCart);
                       print(card);
-                      print("price: $price");
-                      showTransactionConfirm();
+                      print(integers);
+                      print(integers2);
+                      integers2.isNotEmpty
+                          ? showTransactionConfirm()
+                          : print("add ingreds");
                     },
                     color: Color.fromRGBO(163, 8, 11, 1),
                   ),
@@ -184,11 +187,11 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
   }
 
   showTransactionConfirm() {
-    integers2.forEach((p) {
-      price = price + componenty[integers[p]][integers2[p]].price;
-    });
-    price += (CDATA[0][img1].price * 2);
-    print(price);
+    for (int i = 0; i < integers2.length; i++) {
+      prices.add(componenty[integers[i]][mapId[i]].price);
+    }
+    int sum = prices.reduce((a, b) => a + b);
+    sum = sum + CDATA[0][img1].price * 2;
 
     showGeneralDialog(
         context: context,
@@ -216,7 +219,7 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
                         height: 40,
                       ),
                       Text(
-                        'Total:   $price som',
+                        'Всего:   $sum сом',
                         style: TextStyle(fontSize: 20),
                       ),
                       Row(
@@ -225,30 +228,27 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
                             FlatButton(
                               color: Colors.red[300],
                               child: Text(
-                                'Cancel',
+                                'Отмена',
                                 style: TextStyle(color: Colors.white),
                               ),
                               onPressed: () {
-                                price = 0;
+                                prices.clear();
                                 Navigator.pop(context);
                               },
                             ),
                             FlatButton(
                               color: Colors.red[300],
-                              child: Text('Accept',
+                              child: Text('Принять',
                                   style: TextStyle(color: Colors.white)),
                               onPressed: () {
-                                cart[ints[countCustomBurgers]] = price;
+                                cart[ints[countCustomBurgers]] = sum;
                                 card.add(ints[countCustomBurgers]);
                                 burgerIdimages[ints[countCustomBurgers]] = [
                                   'assets/burger.png',
-                                  price,
+                                  sum,
                                   1
                                 ];
-                                integers2.forEach((f){
-                                  
-                                });
-                                allBurgers[countCustomBurgers] = addToCart;
+                                // allBurgers[countCustomBurgers] = addToCart;
                                 countCustomBurgers++;
                                 print(countCustomBurgers);
                                 Navigator.pop(context);
@@ -272,7 +272,7 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
     return showDialog(
         context: context,
         child: AlertDialog(
-          title: Text("Limit"),
+          title: Text("Лимит"),
           actions: <Widget>[
             FlatButton(
               child: Text('Ok'),
@@ -295,7 +295,7 @@ class _CrazyConstructorScreenState extends State<CrazyConstructorScreen> {
         barrierDismissible: true,
         builder: (BuildContext context) {
           return SimpleDialog(
-            title: const Text('Select Ingredient '),
+            title: const Text('Выберите ингредиент'),
             children: <Widget>[
               Container(
                   height: 100,
