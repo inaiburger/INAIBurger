@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+List<String> historyName = [];
+List<int> historyPrice = [];
+
 class History extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -9,20 +12,26 @@ class History extends StatelessWidget {
         centerTitle: true,
         title: Text('Заказы'),
       ),
-      body: ListView(
-        children: <Widget>[
-          Card(
+      body: ListView.builder(
+        itemBuilder: (BuildContext context, index) {
+          return Card(
             elevation: 8,
             margin: EdgeInsets.all(8),
-            
-            child: Container(padding: EdgeInsets.all(15),child: Text('12094012940:  1600 som',style: TextStyle(fontSize: 30),)),
-          ),
-          Card(
-            elevation: 8,
-            margin: EdgeInsets.all(8),
-            child: Container(padding: EdgeInsets.all(15),child: Text('12948892849:  320 som',style: TextStyle(fontSize: 30),)),
-          )
-        ],
+            child: Container(
+                padding: EdgeInsets.all(15),
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                  Expanded(
+                    child: Text(
+                      '${historyName[index]}:  ${historyPrice[index]} som',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ),
+                  Icon(Icons.access_time)
+                ])),
+          );
+        },
+        itemCount: historyPrice.length,
       ),
     );
   }

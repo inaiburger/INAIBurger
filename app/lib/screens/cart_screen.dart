@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import '../models/component_images.dart';
 import 'history.dart';
@@ -30,35 +32,27 @@ class _CartScreenState extends State<CartScreen> {
             FlatButton(
                 onPressed: () {
                   setState(() {
-                      card.clear();
-                      cart.clear();
-                      burgerIdimages = {
-                        'Toasty Buns Burgers': [
-                          'assets/images/burger1.png',
-                          250,
-                          1
-                        ],
-                        'Backyard Burgers': [
-                          'assets/images/burger2.png',
-                          300,
-                          1
-                        ],
-                        'Beefcakes Burgers': [
-                          'assets/images/burger3.png',
-                          180,
-                          1
-                        ],
-                        'Buzz Burgers': ['assets/images/burger4.png', 150, 1],
-                        'Buffalo Burgers': [
-                          'assets/images/burger6.png',
-                          350,
-                          1
-                        ],
-                        'Knuckle Burger': ['assets/images/burger7.png', 500, 1],
-                        'CrazyBurger': ['assets/images/burger9.jpg', 1111, 1]
-                      };
-                      countCustomBurgers = 0;
-                    });
+                    card.clear();
+                    cart.clear();
+                    burgerIdimages = {
+                      'Toasty Buns Burgers': [
+                        'assets/images/burger1.png',
+                        250,
+                        1
+                      ],
+                      'Backyard Burgers': ['assets/images/burger2.png', 300, 1],
+                      'Beefcakes Burgers': [
+                        'assets/images/burger3.png',
+                        180,
+                        1
+                      ],
+                      'Buzz Burgers': ['assets/images/burger4.png', 150, 1],
+                      'Buffalo Burgers': ['assets/images/burger6.png', 350, 1],
+                      'Knuckle Burger': ['assets/images/burger7.png', 500, 1],
+                      'CrazyBurger': ['assets/images/burger9.jpg', 1111, 1]
+                    };
+                    countCustomBurgers = 0;
+                  });
                   return Navigator.pop(context);
                 },
                 child: Text('Да'))
@@ -93,7 +87,7 @@ class _CartScreenState extends State<CartScreen> {
                         height: 40,
                       ),
                       Text(
-                        'Total:   $total som',
+                        'Итого:   $total som',
                         style: TextStyle(fontSize: 20),
                       ),
                       Row(
@@ -114,6 +108,55 @@ class _CartScreenState extends State<CartScreen> {
                               child: Text('Accept',
                                   style: TextStyle(color: Colors.white)),
                               onPressed: () {
+                                var rng = new Random();
+                                for (var i = 0; i < 1; i++) {
+                                  historyName
+                                      .add(rng.nextInt(100000000).toString());
+                                }
+
+                                historyPrice.add(total);
+                                setState(() {
+                                  card.clear();
+                                  cart.clear();
+                                  burgerIdimages = {
+                                    'Toasty Buns Burgers': [
+                                      'assets/images/burger1.png',
+                                      250,
+                                      1
+                                    ],
+                                    'Backyard Burgers': [
+                                      'assets/images/burger2.png',
+                                      300,
+                                      1
+                                    ],
+                                    'Beefcakes Burgers': [
+                                      'assets/images/burger3.png',
+                                      180,
+                                      1
+                                    ],
+                                    'Buzz Burgers': [
+                                      'assets/images/burger4.png',
+                                      150,
+                                      1
+                                    ],
+                                    'Buffalo Burgers': [
+                                      'assets/images/burger6.png',
+                                      350,
+                                      1
+                                    ],
+                                    'Knuckle Burger': [
+                                      'assets/images/burger7.png',
+                                      500,
+                                      1
+                                    ],
+                                    'CrazyBurger': [
+                                      'assets/images/burger9.jpg',
+                                      1111,
+                                      1
+                                    ]
+                                  };
+                                  countCustomBurgers = 0;
+                                });
                                 Navigator.pop(context);
                               },
                             ),
@@ -132,7 +175,9 @@ class _CartScreenState extends State<CartScreen> {
     if (card.isEmpty) {
       return Column(children: [
         FlatButton(
-          child: Icon(Icons.history),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Text("Заказы"), Icon(Icons.history)]),
           onPressed: () {
             Navigator.push(
               context,
@@ -140,12 +185,8 @@ class _CartScreenState extends State<CartScreen> {
             );
           },
         ),
-        SizedBox(height: 100,),
-        Center(
-          child: Text(
-            'Пусто',
-            style: TextStyle(fontSize: 50),
-          ),
+        SizedBox(
+          height: 100,
         ),
       ]);
     } else {
@@ -153,6 +194,10 @@ class _CartScreenState extends State<CartScreen> {
         // FlatButton(
         //   child: Text('Debug Print'),
         //   onPressed: () {
+        //     var rng = new Random();
+        //                         for (var i = 0; i < 1; i++) {
+        //                           print(rng.nextInt(100000000));
+        //                         }
         //     print("card: $card");
         //     print("cart: $cart");
         //     // print("burgerIdimages; $burgerIdimages");
@@ -161,7 +206,9 @@ class _CartScreenState extends State<CartScreen> {
         //   },
         // ),
         FlatButton(
-          child: Text("Заказы"),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Text("Заказы"), Icon(Icons.history)]),
           onPressed: () {
             Navigator.push(
               context,
@@ -190,15 +237,14 @@ class _CartScreenState extends State<CartScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                      
-                          Container(
-                            height: 80,
-                            width: 80,
-                            child: Image.asset(
-                              burgerIdimages[card[index]][0],
-                              fit: BoxFit.contain,
-                            ),
+                        Container(
+                          height: 80,
+                          width: 80,
+                          child: Image.asset(
+                            burgerIdimages[card[index]][0],
+                            fit: BoxFit.contain,
                           ),
+                        ),
                         Expanded(
                           child: Column(
                             children: <Widget>[
@@ -318,8 +364,7 @@ class _CartScreenState extends State<CartScreen> {
                       )),
                   color: Color.fromRGBO(163, 8, 11, 1),
                   onPressed: () {
-                    _showAlert(context,"Удалить всё?");
-                    
+                    _showAlert(context, "Удалить всё?");
                   },
                 ),
                 FlatButton(

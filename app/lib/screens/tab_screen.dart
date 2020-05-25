@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:inaiburger/models/newsapi.dart';
 import 'package:inaiburger/screens/contacts.dart';
 import 'package:inaiburger/screens/contacts_screen.dart';
 import 'package:inaiburger/screens/custom_constructor.dart';
@@ -23,7 +24,7 @@ class _TabsScreenState extends State<TabsScreen> {
     _pages = [
       {'page': DashboardScreen(), 'title': 'InaiBurger'},
       {'page': ConstructorMenu(), 'title': 'Бургер Конструктор'},
-      {'page': NewsScreen(), 'title': 'Новости'},
+      {'page': AllNewsList(), 'title': 'Новости'},
       {'page': MapScreen(), 'title': 'Карта'},
       {'page': CartScreen(), 'title': 'Корзина'},
     ];
@@ -179,7 +180,7 @@ class AppDrawer extends StatelessWidget {
             padding: EdgeInsets.only(left: 8.0),
             child: Text(
               text,
-              style: TextStyle(),
+              style: TextStyle(fontSize: 12),
             ),
           )
         ],
